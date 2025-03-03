@@ -1,0 +1,92 @@
+.popular-proverbs-container {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  .category-links {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid grey;
+
+    width: 100%;
+    max-width: 650px;
+    overflow-x: scroll;
+    margin: 2em auto;
+
+    &::-webkit-scrollbar {
+      width: 0.5em;
+      height: 0.5em;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #999;
+      border-radius: 1em;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    button {
+      cursor: pointer;
+      height: 64px;
+      width: auto;
+      border-radius: 0px;
+      padding: 1rem;
+      outline: none;
+      border: none;
+      background: transparent;
+      font-family: Poppins;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 26px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    :hover {
+      background: var(--light-background);
+      color: var(--primary-color);
+      box-shadow: var(--box-shadow);
+    }
+
+    .active {
+      background: var(--light-background);
+      color: var(--primary-color);
+    }
+  }
+  .cards-container {
+    display: flex;
+    overflow: auto;
+    position: relative;
+    .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 4%;
+      font-size: 25px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 0.5em;
+      height: 0.5em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #999;
+      border-radius: 1em;
+      display: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nested-cards-container {
+      // display: flex;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        width: 95%;
+        margin: auto;
+        max-width: 1400px;
+      }
+    }
+  }
+}

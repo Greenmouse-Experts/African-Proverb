@@ -1,0 +1,83 @@
+.popular-proverbs-container {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.popular-proverbs-container .category-links {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid grey;
+  width: 100%;
+  max-width: 650px;
+  overflow-x: scroll;
+  margin: 2em auto;
+}
+.popular-proverbs-container .category-links::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+.popular-proverbs-container .category-links::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 1em;
+}
+.popular-proverbs-container .category-links::-webkit-scrollbar {
+  display: none;
+}
+.popular-proverbs-container .category-links button {
+  cursor: pointer;
+  height: 64px;
+  width: auto;
+  border-radius: 0px;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.popular-proverbs-container .category-links :hover {
+  background: var(--light-background);
+  color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+}
+.popular-proverbs-container .category-links .active {
+  background: var(--light-background);
+  color: var(--primary-color);
+}
+.popular-proverbs-container .cards-container {
+  display: flex;
+  overflow: auto;
+  position: relative;
+}
+.popular-proverbs-container .cards-container .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 4%;
+  font-size: 25px;
+}
+.popular-proverbs-container .cards-container::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+.popular-proverbs-container .cards-container::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 1em;
+  display: none;
+}
+.popular-proverbs-container .cards-container::-webkit-scrollbar {
+  display: none;
+}
+.popular-proverbs-container .cards-container .nested-cards-container {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .popular-proverbs-container .cards-container .nested-cards-container {
+    width: 95%;
+    margin: auto;
+    max-width: 1400px;
+  }
+}/*# sourceMappingURL=Popularproverbs.module.css.map */

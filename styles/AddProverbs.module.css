@@ -1,0 +1,72 @@
+.main-container {
+  width: 100%;
+}
+.main-container .form-container {
+  padding: 2rem 3rem;
+  width: 100%;
+}
+.main-container .form-container h1 {
+  color: #bb5d06;
+  font-family: Millik;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 108.4%;
+  margin-bottom: 3rem;
+}
+.main-container .form-container form {
+  width: 100%;
+  max-width: 790px;
+}
+.main-container .form-container form .double-column-fields {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .main-container .form-container form .double-column-fields {
+    flex-direction: column;
+    gap: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+}
+.modal-content p {
+  color: #000;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+.modal-content .modal-content-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+.modal-content .modal-content-btn button {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal-content .modal-content-btn .btn-1 {
+  border: 1px solid #bb5d06;
+  color: #bb5d06;
+  background: #fff;
+}
+.modal-content .modal-content-btn .btn-2 {
+  background: #bb5d06;
+  color: #fff;
+}/*# sourceMappingURL=AddProverbs.module.css.map */

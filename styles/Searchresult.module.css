@@ -1,0 +1,174 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+.main .search-form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  padding: 2rem;
+}
+.main .search-form-container form {
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .main .search-form-container form {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+.main .search-form-container form input {
+  height: 53px;
+  max-width: 466px;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  border-radius: 10px;
+  padding-left: 1rem;
+  font-family: Mulish;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--input-color);
+  outline: none;
+  border: none;
+}
+@media screen and (max-width: 991px) {
+  .main .search-form-container form input {
+    max-width: 866px;
+  }
+}
+.main .search-form-container form .search-form-select {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 550px;
+  width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .main .search-form-container form .search-form-select {
+    max-width: 866px;
+    gap: 1rem;
+  }
+}
+.main .search-form-container form .search-form-select .categories {
+  width: 50%;
+}
+@media screen and (max-width: 991px) {
+  .main .search-form-container form .search-form-select .categories {
+    width: 50%;
+  }
+}
+.main .search-form-container form .search-form-select .ethnic {
+  width: 50%;
+}
+@media screen and (max-width: 991px) {
+  .main .search-form-container form .search-form-select .ethnic {
+    width: 50%;
+  }
+}
+.main .search-form-container form .search-form-select select {
+  height: 53px;
+  border-radius: 10px;
+  padding: 1rem;
+  font-family: Mulish;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--input-color);
+  border: none;
+  outline: none;
+}
+.main .search-form-container form button {
+  height: 53px;
+  max-width: 131px;
+  width: 100%;
+  border-radius: 10px;
+  font-family: Mulish;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  background: var(--primary-color);
+  color: var(--white-color);
+  cursor: pointer;
+  border: none;
+}
+@media screen and (max-width: 991px) {
+  .main .search-form-container form button {
+    max-width: 866px;
+  }
+}
+.main .proverb-card-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+}
+.main .proverb-card-wrapper .error p {
+  color: red;
+}
+.main .proverb-card-wrapper .proverb-card-container {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  row-gap: 2rem;
+}
+@media screen and (max-width: 1248px) {
+  .main .proverb-card-wrapper .proverb-card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 898px) {
+  .main .proverb-card-wrapper .proverb-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 626px) {
+  .main .proverb-card-wrapper .proverb-card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.main .pagination-container {
+  margin: 5rem 0rem;
+  display: flex;
+  justify-content: center;
+}
+.main .pagination-container .pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: Mulish;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.main .pagination-container .pagination button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.main .pagination-container .pagination img {
+  height: 10px;
+  width: 10px;
+}/*# sourceMappingURL=Searchresult.module.css.map */

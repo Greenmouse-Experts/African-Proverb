@@ -1,0 +1,117 @@
+.homeproverbcard {
+  display: flex;
+  border-radius: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+  align-items: center;
+}
+.homeproverbcard .calm-tag {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  margin-top: auto;
+}
+.homeproverbcard .calm-tag .calm-tag-header {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+.homeproverbcard .calm-tag .trans {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  max-width: 270px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  font-weight: 100;
+}
+.homeproverbcard .calm-tag .inter {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  max-width: 200px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  font-weight: 100;
+}
+.homeproverbcard .home-proverb-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 1rem;
+}
+.homeproverbcard .home-proverb-content img {
+  align-self: flex-end;
+}
+.homeproverbcard .home-proverb-content .category {
+  max-width: 81.8169784546px;
+  left: 27.4743652344px;
+  top: 321.8422851563px;
+  border-radius: 5.5906839371px;
+  padding: 4px 15px 4px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  font-family: Mullish;
+  cursor: pointer;
+}
+.homeproverbcard .home-proverb-content .proverb-detail {
+  margin-top: 0.6rem;
+}
+.homeproverbcard .home-proverb-content .proverb-detail .proverb {
+  font-family: Mulish;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 807px) {
+  .homeproverbcard .home-proverb-content .proverb-detail .proverb {
+    font-size: 16px;
+  }
+}
+.homeproverbcard .home-proverb-content .social-links {
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+}
+.homeproverbcard .home-proverb-content .social-links img {
+  cursor: pointer;
+}
+.homeproverbcard .home-proverb-content .view-proverb {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  gap: 6.87px;
+  cursor: pointer;
+}
+.homeproverbcard .home-proverb-content .view-proverb img {
+  height: 13px;
+  width: 13px;
+}
+@media screen and (max-width: 807px) {
+  .homeproverbcard .home-proverb-content .view-proverb img {
+    font-size: 14px;
+  }
+}
+.homeproverbcard .home-proverb-content .view-proverb p {
+  font-family: Mulish;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: var(--primary-color);
+}
+@media screen and (max-width: 807px) {
+  .homeproverbcard .home-proverb-content .view-proverb p {
+    font-size: 14px;
+  }
+}
+
+.insta-link {
+  font-weight: 400;
+  font-size: 0.7rem;
+} /*# sourceMappingURL=HomeProverb2.module.css.map */

@@ -1,0 +1,183 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main .about-container .header-paragraph {
+  padding: 0rem 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 79px;
+  margin-bottom: 3rem;
+}
+.main .about-container .header-paragraph p {
+  font-family: Mulish;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 35px;
+  letter-spacing: 0em;
+  text-align: center;
+  max-width: 687px;
+}
+@media screen and (max-width: 768px) {
+  .main .about-container .header-paragraph p {
+    font-size: 18px;
+  }
+}
+.main .about-section-container {
+  display: grid;
+  padding-top: 4rem;
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  min-height: 720px;
+  gap: 0.5rem;
+  padding-left: 2rem;
+}
+@media screen and (max-width: 1005px) {
+  .main .about-section-container {
+    grid-template-columns: 1fr;
+  }
+}
+.main .about-section-container .about-section-left {
+  max-width: 850px;
+  width: 100%;
+}
+@media screen and (max-width: 1005px) {
+  .main .about-section-container .about-section-left {
+    max-width: 1005px;
+    padding: 1rem;
+  }
+}
+.main .about-section-container .about-section-left h3 {
+  font-family: Mulish;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 43px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+@media screen and (max-width: 500px) {
+  .main .about-section-container .about-section-left h3 {
+    font-size: 24px;
+  }
+}
+.main .about-section-container .about-section-left p {
+  font-family: Mulish;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 38px;
+  max-width: 828px;
+  color: var(--light-text-color);
+}
+@media screen and (max-width: 1005px) {
+  .main .about-section-container .about-section-left p {
+    max-width: 1005px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main .about-section-container .about-section-left p {
+    font-size: 16px;
+  }
+}
+.main .about-section-container .about-section-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0rem 1rem;
+  overflow: hidden;
+}
+@media screen and (max-width: 1005px) {
+  .main .about-section-container .about-section-right {
+    min-height: 660px;
+    padding-top: 3rem;
+  }
+}
+@media screen and (max-width: 633x) {
+  .main .about-section-container .about-section-right {
+    max-width: 633px;
+    width: 100%;
+    padding: 0rem 0rem;
+  }
+}
+.main .about-below-group {
+  display: flex;
+  padding: 0rem 2rem;
+  padding-top: 4rem;
+  gap: 3rem;
+  width: 100%;
+  min-height: 720px;
+}
+@media screen and (max-width: 1005px) {
+  .main .about-below-group {
+    flex-direction: column-reverse;
+    padding-bottom: 7rem;
+  }
+}
+.main .about-below-group .about-below-left {
+  min-width: 500px;
+}
+@media screen and (max-width: 1005px) {
+  .main .about-below-group .about-below-left {
+    display: flex;
+    justify-content: center;
+  }
+}
+.main .about-below-group .about-below-left img {
+  max-height: 500px;
+  max-width: 700px;
+  width: 100%;
+}
+@media screen and (max-width: 1005px) {
+  .main .about-below-group .about-below-left img {
+    height: auto;
+  }
+}
+.main .about-below-right {
+  width: 100%;
+}
+@media screen and (max-width: 1005px) {
+  .main .about-below-right {
+    max-width: 1005px;
+  }
+}
+.main .about-below-right h3 {
+  font-family: Mulish;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 43px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+@media screen and (max-width: 500px) {
+  .main .about-below-right h3 {
+    font-size: 24px;
+  }
+}
+.main .about-below-right .about-vision-statement {
+  margin-top: 2rem;
+}
+.main .about-below-right p {
+  font-family: Mulish;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 38px;
+  color: var(--light-text-color);
+}
+@media screen and (max-width: 1005px) {
+  .main .about-below-right p {
+    max-width: 1005px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main .about-below-right p {
+    font-size: 16px;
+  }
+}/*# sourceMappingURL=About.module.css.map */

@@ -1,0 +1,160 @@
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.ethnic-dropdown {
+  padding: 0.8em;
+  display: block;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
+}
+
+.wrapper {
+  min-height: 500px;
+  position: relative;
+  & > div {
+    margin: 2em 0;
+  }
+}
+
+.back-arrow {
+  position: absolute;
+  top: -10%;
+  cursor: pointer;
+  left: 1%;
+}
+
+.label {
+  display: block;
+  margin: 0.5em 0;
+  span {
+    color: red;
+  }
+}
+
+.dropdown-container {
+  border: 1px solid #ddd;
+  border-radius: 0.8em;
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  background-color: #fff;
+}
+
+.language-wrapper {
+  position: relative;
+}
+
+.language-container {
+  border: 1px solid #ddd;
+  border-radius: 0.8em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.language-pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  min-height: 50px;
+  p {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    color: #aaa;
+  }
+}
+
+.icon-container {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.language-icon {
+  cursor: pointer;
+}
+
+.language-result {
+  padding: 0.5em;
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  margin: 0.5em;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  border-radius: 0.5em;
+}
+
+.language {
+  margin: 0.5em 0;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.pricing-options {
+  cursor: pointer;
+  display: flex;
+
+  gap: 10px;
+  .pricing-option {
+    padding: 1em;
+    width: 48%;
+    // display: flex;
+    // flex-direction: column;
+    border: 3px solid red;
+    gap: 10px;
+    margin-top: 1em;
+    border: 1px solid #ddd;
+    border-radius: 0.8em;
+    div {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+    }
+    p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    &:hover {
+      background-color: #ddd;
+      border: #444;
+      div {
+        background-color: #888;
+        border: 2px solid #444;
+      }
+    }
+  }
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bb5d06;
+  color: #fff;
+  padding: 1em;
+  border-radius: 0.5em;
+  &:disabled {
+    background-color: #999;
+  }
+}

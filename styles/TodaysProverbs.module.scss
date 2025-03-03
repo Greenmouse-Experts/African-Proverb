@@ -1,0 +1,52 @@
+.container {
+	display: flex;
+	overflow: auto;
+	position: relative;
+
+	.icon {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 4%;
+		font-size: 25px;
+	}
+	&::-webkit-scrollbar {
+		width: 0.5em;
+		height: 0.5em;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #999;
+		border-radius: 1em;
+		display: none;
+	}
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	.nested-container {
+		// display: flex;
+		width: 100%;
+
+		@media (min-width: 768px) {
+			width: 95%;
+			margin: auto;
+			max-width: 1400px;
+		}
+
+		// justify-content: space-around;
+		// gap: 10px;
+		// min-width: 1500px;
+		// margin-left: 1em;
+		// @media (min-width: 1000px) {
+		// 	margin-left: 5em;
+		// }
+	}
+}
+
+.wapper {
+	margin: 2em 0;
+	@media (min-width: 768px) {
+		// margin: 4em 0;
+	}
+}

@@ -1,0 +1,488 @@
+.media-container {
+  padding: 0rem 10rem;
+  max-width: 1000px;
+  width: 100%;
+
+  padding: 2rem;
+
+  .video-media {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    gap: 1rem;
+    overflow: hidden;
+    justify-content: space-between;
+
+    .image {
+      width: 20%;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .video {
+      border-radius: 30px;
+      overflow: hidden;
+      width: 100%;
+      background-color: #000;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+
+      video {
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .audio {
+    width: 100%;
+
+    audio {
+      width: 100%;
+    }
+  }
+
+  .detail-content {
+    display: flex;
+    gap: 2rem;
+    min-height: 410px;
+    margin-top: 2.5rem;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .left {
+      width: 339px;
+      border-radius: 20px;
+      background: var(--white-color);
+      padding: 2rem 1rem;
+
+      .left-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+
+        .active {
+          color: var(--primary-color);
+        }
+      }
+
+      .ethnics {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        p {
+          font-family: Mulish;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 26px;
+          letter-spacing: 0em;
+          text-align: left;
+          cursor: pointer;
+        }
+      }
+
+      h2 {
+        font-family: Mulish;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0em;
+        margin-bottom: 2rem;
+        text-align: left;
+        color: var(--primary-color);
+      }
+
+      h4 {
+        font-family: Mulish;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0em;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+          margin-left: 0.5rem;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+
+      .interpretation-CTA {
+        margin-top: 3rem;
+      }
+    }
+
+    .middle {
+      max-width: 973px;
+      width: 100%;
+
+      .proverb-btn-other-categories {
+        background: var(--light-background);
+        color: var(--primary-color);
+      }
+
+      .proverb-btn-category {
+        margin-top: 1rem;
+      }
+
+      .proverb-btn,
+      .proverb-btn-category {
+        display: flex;
+        gap: 1rem;
+
+        :nth-child(2),
+        :nth-child(3) {
+          background: rgba(52, 52, 52, 0.45);
+          color: var(--white-color);
+        }
+
+        .proverb-btn-other-categories {
+          background: var(--light-background);
+          color: var(--primary-color);
+        }
+
+        button {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 3.72712px 14.9085px;
+          gap: 6.23px;
+          height: 34.45px;
+          background: rgba(187, 93, 6, 0.08);
+          border-radius: 5.59068px;
+          border: none;
+          cursor: pointer;
+          font-family: "Mulish";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 26px;
+        }
+      }
+
+      .main-proverb {
+        display: flex;
+        gap: 1rem;
+        margin: 2rem 0px 2rem 0px;
+        word-wrap: break-word;
+
+        @media screen and (max-width: 768px) {
+          margin-top: 2rem;
+        }
+
+        .homeproverbcard {
+          display: flex;
+          border-radius: 1rem;
+          justify-content: center;
+          padding: 1rem;
+          box-shadow: var(--box-shadow);
+          align-items: center;
+
+
+          .calm-tag {
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            margin-top: auto;
+
+            .calm-tag-header {
+              color: var(--primary-color);
+              font-size: 18px;
+            }
+
+            .trans {
+              text-align: center;
+              margin-bottom: 0.5rem;
+              max-width: 270px;
+              font-size: 20px;
+              opacity: 0.8;
+              font-weight: 100;
+            }
+
+            .inter {
+              text-align: center;
+              margin-bottom: 0.5rem;
+              max-width: 350px;
+              font-size: 20px;
+              opacity: 0.6;
+              font-weight: 100;
+            }
+          }
+
+          .home-proverb-content {
+            display: flex;
+            flex-direction: column;
+            // min-height: 250px;
+            justify-content: space-evenly;
+            align-items: center;
+            // position: absolute;
+            // bottom: 0;
+            padding-top: 1rem;
+
+            img {
+              align-self: flex-end;
+            }
+
+            .category {
+              // height: 34.454246520996094px;
+              max-width: 81.81697845458984px;
+              left: 27.474365234375px;
+              top: 321.84228515625px;
+              border-radius: 5.590683937072754px;
+              padding: 4px 15px 4px 15px;
+              // background: var(--light-background);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: var(--primary-color);
+              font-family: Mullish;
+              cursor: pointer;
+              // margin-top: 2rem;
+            }
+
+            .proverb-detail {
+              // position: relative;
+
+              margin-top: 0.6rem;
+
+              .proverb {
+                font-family: Mulish;
+                font-size: 1rem;
+                font-weight: 300;
+                letter-spacing: 0em;
+                text-align: center;
+                margin-bottom: 1rem;
+
+                @media screen and (max-width: 807px) {
+                  font-size: 16px;
+                }
+              }
+
+
+            }
+
+
+
+
+          }
+
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          max-width: 316px;
+
+          @media screen and (max-width: 768px) {
+            display: none;
+          }
+        }
+
+        p {
+          font-family: Mulish;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 22px;
+          letter-spacing: 0em;
+          text-align: left;
+
+          @media screen and (max-width: 826px) {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .interpretation {
+        margin-bottom: 3rem;
+
+        h2 {
+          margin: 2rem 0rem;
+          color: var(--primary-color);
+          font-size: 18px;
+        }
+
+        p {
+          font-family: Poppins;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 26px;
+          letter-spacing: 0.01em;
+          text-align: left;
+        }
+
+        .left-content {
+          display: flex;
+          gap: 2rem;
+          margin-top: 1rem;
+        }
+      }
+
+      .trans-inter-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+
+        @media screen and (min-width: 768px) {
+          display: none;
+        }
+
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-bottom: 0.5px solid grey;
+          width: 100%;
+          max-width: 250px;
+
+          span {
+            :hover {
+              box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+                rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            }
+          }
+
+          button {
+            height: 45px;
+            width: 100px;
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .right {
+      .likecontainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+
+        .likestyle {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          width: 50%;
+
+          .liked {
+            color: #bb5d06;
+          }
+        }
+
+        .unlikestyle {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 50%;
+
+          .unliked {
+            color: #bb5d06;
+          }
+        }
+      }
+
+      h3 {
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        text-align: left;
+        margin-bottom: 1rem;
+
+        @media screen and (max-width: 768px) {
+          margin-bottom: 0.5rem;
+          color: #8a8a8a;
+          font-size: 12px;
+        }
+      }
+
+      .right-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        @media screen and (max-width: 768px) {
+          flex-direction: row;
+        }
+
+        img {
+          height: 15px;
+          width: 15px;
+          cursor: pointer;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        // height: 60.59016418457031px;
+        width: 168px;
+
+        border-radius: 5.820136547088623px;
+        background: #eeeeee;
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+.music {
+  height: 300px;
+  width: 100px;
+}
+
+/*TAB STYLES*/
+
+.tabs-container {
+  display: flex;
+  margin-top: 3rem;
+}
+
+.tab {
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px 5px 0 0;
+  background-color: #f0f0f0;
+}
+
+.tab.active {
+  background-color: #fff;
+  /* Set the background color for the active tab */
+  border-bottom: 1px solid #fff;
+  /* Optional: Hide the bottom border of the active tab */
+  color: var(--primary-color);
+  /* Set the text color for the active tab */
+}
+
+/* Optional: Add transitions for a smoother visual effect */
+.tab {
+  transition: background-color 0.3s, color 0.3s;
+}

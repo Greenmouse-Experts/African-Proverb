@@ -1,0 +1,13 @@
+.testimonial-container {
+  display: flex;
+  justify-content: center;
+  gap: 29px;
+  margin-top: 71px;
+  margin-bottom: 155px;
+  padding: 2rem;
+}
+@media screen and (max-width: 991px) {
+  .testimonial-container {
+    flex-wrap: wrap;
+  }
+}/*# sourceMappingURL=Testimonials.module.css.map */

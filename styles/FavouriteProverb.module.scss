@@ -1,0 +1,23 @@
+.main-container {
+  width: 100%;
+  padding: 2rem 3rem;
+
+  .proverb-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    h1 {
+      color: #bb5d06;
+      font-family: Millik;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 108.4%;
+      margin-bottom: 2rem;
+      @media screen and (max-width: 640px) {
+        font-size: 28px;
+      }
+    }
+  }
+}

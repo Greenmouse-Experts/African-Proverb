@@ -1,0 +1,132 @@
+.realcousin-section{
+    display: flex;
+    justify-content: center;
+    padding: 0rem 2rem;
+    margin-top: 1rem;
+    max-height: 220px;
+
+    @media screen and (max-width:768px) {
+        margin-top: 6rem;
+ 
+     }
+
+}
+
+.realcousin-container{
+    // width: 100%;
+    max-width: 969px;
+    width: 100%;
+    border-radius: 30px;
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    background: var(--light-background);
+    gap: 2rem;
+
+    @media screen and (max-width:768px) {
+       flex-direction: column-reverse;
+       padding: 2rem;
+       gap: 4rem;
+
+    }
+
+
+
+    .realcousin-left{
+        width: 50%;
+        // max-width: 810px;
+        height: 100%;
+        @media screen and (max-width:768px) {
+            width: 100%;
+         }
+
+        img{
+            width: 100%;
+            height: 100%;
+
+            @media screen and (max-width:768px) {
+                height: auto;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+             }
+        }
+        
+
+
+
+    }
+
+
+    .realcousin-right{
+    
+        width: 50%;
+        // padding: 2rem;
+        height: 100%;
+        // max-width: 810px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @media screen and (max-width:768px) {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+         }
+
+        h1{
+            font-family: Millik;
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 33px;
+            text-align: center;
+
+          
+            @media screen and (max-width:851px) {
+                font-size: 22px;
+                line-height: 33px;
+
+            }
+
+            @media screen and (max-width:768px) {
+                font-size: 18px;
+                line-height: 23px;
+
+            }
+
+
+
+        }
+
+        button{
+            margin-top: 3rem;
+            height: 53px;
+            width: 202px;
+            border-radius: 10px;
+            background: var(--primary-color);
+            border: none;
+            color: var(--white-color);
+            font-family: Mulish;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+
+            @media screen and (max-width:992px) {
+                height: 43px;
+                width: 182px;
+                margin-top: 2rem;
+
+            }
+
+            @media screen and (max-width:768px) {
+                height: 33px;
+                width: 132px;
+                font-size: 14px;
+                margin-top: 2rem;
+
+            }
+        }
+    }
+
+    
+}

@@ -1,0 +1,38 @@
+.about-section-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+
+.about-section-image {
+  position: absolute;
+  left: 0;
+  top: 200px;
+}
+.about-section-image img {
+  max-width: 460px;
+  width: 100%;
+  height: 400px;
+}
+@media screen and (max-width: 400px) {
+  .about-section-image img {
+    max-width: 300px;
+    width: 300px;
+  }
+}
+
+.about-section-video {
+  width: 90%;
+  height: 350px;
+  border-radius: 20px;
+  z-index: 1;
+}
+.about-section-video video {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=AboutVideo.module.css.map */

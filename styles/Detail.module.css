@@ -1,0 +1,315 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .media-container {
+  padding: 0rem 2rem;
+  margin: 50px 10px;
+  max-width: 1000px;
+}
+.main .media-container .video-media {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  overflow: hidden;
+  justify-content: space-between;
+}
+.main .media-container .video-media .image {
+  width: 20%;
+}
+.main .media-container .video-media .image img {
+  height: 100%;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .video-media .image {
+    display: none;
+  }
+}
+.main .media-container .video-media .video {
+  border-radius: 30px;
+  overflow: hidden;
+  width: 100%;
+  background-color: #000;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .video-media .video {
+    width: 100%;
+  }
+}
+.main .media-container .video-media .video video {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main .media-container .audio {
+  width: 100%;
+}
+.main .media-container .audio audio {
+  width: 100%;
+}
+.main .media-container .detail-content {
+  display: flex;
+  gap: 2rem;
+  min-height: 410px;
+  margin-top: 2.5rem;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .detail-content {
+    flex-direction: column;
+  }
+}
+.main .media-container .detail-content .left {
+  width: 339px;
+  border-radius: 20px;
+  background: var(--white-color);
+  padding: 2rem 1rem;
+}
+.main .media-container .detail-content .left .left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.main .media-container .detail-content .left .left-content h4 {
+  color: var(--primary-color);
+  margin-top: 30px;
+}
+.main .media-container .detail-content .left .ethnics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.main .media-container .detail-content .left .ethnics p {
+  font-family: Mulish;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  cursor: pointer;
+}
+.main .media-container .detail-content .left h2 {
+  font-family: Mulish;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--primary-color);
+}
+.main .media-container .detail-content .left h4 {
+  font-family: Mulish;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.main .media-container .detail-content .left h4 img {
+  margin-left: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .detail-content .left {
+    display: none;
+  }
+}
+.main .media-container .detail-content .left .interpretation-CTA {
+  margin-top: 3rem;
+}
+.main .media-container .detail-content .middle {
+  max-width: 973px;
+  width: 100%;
+}
+.main .media-container .detail-content .middle .proverb-btn-other-categories {
+  background: var(--light-background);
+  color: var(--primary-color);
+}
+.main .media-container .detail-content .middle .proverb-btn-category {
+  margin-top: 1rem;
+}
+.main .media-container .detail-content .middle .proverb-btn,
+.main .media-container .detail-content .middle .proverb-btn-category {
+  display: flex;
+  gap: 1rem;
+}
+.main .media-container .detail-content .middle .proverb-btn :nth-child(2),
+.main .media-container .detail-content .middle .proverb-btn :nth-child(3),
+.main .media-container .detail-content .middle .proverb-btn-category :nth-child(2),
+.main .media-container .detail-content .middle .proverb-btn-category :nth-child(3) {
+  background: rgba(52, 52, 52, 0.45);
+  color: var(--white-color);
+}
+.main .media-container .detail-content .middle .proverb-btn .proverb-btn-other-categories,
+.main .media-container .detail-content .middle .proverb-btn-category .proverb-btn-other-categories {
+  background: var(--light-background);
+  color: var(--primary-color);
+}
+.main .media-container .detail-content .middle .proverb-btn button,
+.main .media-container .detail-content .middle .proverb-btn-category button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3.72712px 14.9085px;
+  gap: 6.23px;
+  height: 34.45px;
+  background: rgba(187, 93, 6, 0.08);
+  border-radius: 5.59068px;
+  border: none;
+  cursor: pointer;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 26px;
+}
+.main .media-container .detail-content .middle .main-proverb {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0px 2rem 0px;
+  word-wrap: break-word;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .detail-content .middle .main-proverb {
+    margin-top: 2rem;
+  }
+}
+.main .media-container .detail-content .middle .main-proverb img {
+  width: 100%;
+  height: 100%;
+  max-width: 216px;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .detail-content .middle .main-proverb img {
+    display: none;
+  }
+}
+.main .media-container .detail-content .middle .main-proverb p {
+  font-family: Mulish;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+@media screen and (max-width: 826px) {
+  .main .media-container .detail-content .middle .main-proverb p {
+    font-size: 13px;
+  }
+}
+.main .media-container .detail-content .middle .interpretation h2 {
+  margin: 2rem 0rem;
+  color: var(--primary-color);
+  font-size: 18px;
+}
+.main .media-container .detail-content .middle .interpretation p {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+.main .media-container .detail-content .middle .trans-inter-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .main .media-container .detail-content .middle .trans-inter-header {
+    display: none;
+  }
+}
+.main .media-container .detail-content .middle .trans-inter-header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.5px solid grey;
+  width: 100%;
+  max-width: 250px;
+}
+.main .media-container .detail-content .middle .trans-inter-header div span :hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.main .media-container .detail-content .middle .trans-inter-header div button {
+  height: 45px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
+}
+.main .media-container .detail-content .right .likecontainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.main .media-container .detail-content .right .likecontainer .likestyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.main .media-container .detail-content .right .likecontainer .likestyle .liked {
+  color: #BB5D06;
+}
+.main .media-container .detail-content .right .likecontainer .unlikestyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.main .media-container .detail-content .right .likecontainer .unlikestyle .unliked {
+  color: #BB5D06;
+}
+.main .media-container .detail-content .right h3 {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .detail-content .right h3 {
+    margin-bottom: 0.5rem;
+    color: #8A8A8A;
+    font-size: 12px;
+  }
+}
+.main .media-container .detail-content .right .right-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .detail-content .right .right-icons {
+    flex-direction: row;
+  }
+}
+.main .media-container .detail-content .right .right-icons img {
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .main .media-container .detail-content .right {
+    width: 168px;
+    border-radius: 5.8201365471px;
+    background: #EEEEEE;
+    padding: 1rem;
+  }
+}
+
+.music {
+  height: 300px;
+  width: 100px;
+}/*# sourceMappingURL=Detail.module.css.map */

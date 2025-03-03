@@ -1,0 +1,38 @@
+.header{
+    margin-top: 1rem;
+    h1{
+        font-family: Millik;
+        font-size: 2rem;
+
+
+        @media screen and (max-width:768px) {
+            font-size: 1.5rem;
+        }
+
+        @media screen and (max-width:500px) {
+            font-size: 1rem;
+        }
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;        
+
+    .header-line{
+        height: 5px;
+        width: 100px;
+        background: var(--primary-color);
+
+        @media screen and (max-width:768px) {
+            width: 80px;
+
+        }
+
+        @media screen and (max-width:500px) {
+            width: 60px;
+
+        }
+
+    }
+}

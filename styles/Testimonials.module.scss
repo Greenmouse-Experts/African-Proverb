@@ -1,0 +1,14 @@
+.testimonial-container{
+    display: flex;
+    justify-content: center;
+    gap: 29px;
+    margin-top: 2rem;
+    margin-bottom: 155px;
+    padding: 2rem;
+
+
+    @media screen and (max-width:991px){
+        flex-wrap: wrap;
+
+    }
+}

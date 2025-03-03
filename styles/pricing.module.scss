@@ -1,0 +1,142 @@
+.price-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+
+  .price-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      color: #bb5d06;
+      font-family: Millik;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+
+    p {
+      color: #000;
+      font-family: Mulish;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .pricetogglecontainer {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      span {
+        color: #000;
+        font-family: Mulish;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+      }
+    }
+
+    .price-cards {
+      // display: grid;
+      // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      // width: 100%;
+      // margin: auto;
+      // gap: 1rem;
+      // justify-content: space-between;
+      // align-content: space-between;
+      // margin-top: 3rem;
+
+      display: flex;
+      flex-direction: row;
+      // flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      width: 100%;
+
+      @media (max-width: 1200px) {
+        flex-wrap: wrap;
+      }
+
+      .price-card {
+        flex: 1;
+        width: 100%;
+        padding: 1rem;
+        margin-top: 1rem;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        align-items: start;
+        border-radius: 8.343px;
+        border: 0.834px solid rgba(151, 151, 151, 0.49);
+        background: #fff;
+        // align-self: normal;
+      }
+
+      .last-card {
+        // flex: 1;
+        height: 265px;
+        background: #f9b36cb3;
+      }
+    }
+  }
+
+  .freq-container {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    h1 {
+      color: #bb5d06;
+      font-family: Millik;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+
+    .freq-tab {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+
+      @media (max-width: 900px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

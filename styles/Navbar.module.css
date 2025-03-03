@@ -1,0 +1,122 @@
+.container {
+  width: 100%;
+  height: 70px;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .nav-logo {
+  cursor: pointer;
+}
+.container .nav-logo img {
+  height: 81px;
+  width: 130px;
+}
+@media screen and (max-width: 500px) {
+  .container .nav-logo img {
+    height: 51px;
+    width: 70px;
+  }
+}
+.container .hamburger-background {
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 900px) {
+  .container .hamburger-background {
+    width: 34px;
+    height: 34px;
+    display: none;
+  }
+}
+.container .nav-links {
+  color: #fff !important;
+  display: flex;
+  gap: 2rem;
+}
+@media screen and (min-width: 900px) {
+  .container .nav-links {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container .nav-links {
+    display: none;
+  }
+}
+.container .nav-links a {
+  color: #fff !important;
+}
+.container .nav-links_auth {
+  display: flex;
+  gap: 0.5rem;
+  color: #000 !important;
+  align-items: center;
+}
+@media screen and (min-width: 900px) {
+  .container .nav-links_auth {
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container .nav-links_auth {
+    display: none;
+  }
+}
+.container .nav-links_auth a {
+  color: #000 !important;
+}
+.container .nav-right-loggedin {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+@media screen and (max-width: 900px) {
+  .container .nav-right-loggedin {
+    display: none;
+  }
+}
+.container .nav-auth-links {
+  display: flex;
+  gap: 0.5rem;
+  color: #fff;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .container .nav-auth-links {
+    display: none;
+  }
+}
+.container .nav-auth-links .nav-auth-login {
+  border: 1px solid grey;
+  color: #fff !important;
+}
+.container .nav-auth-links {
+  display: flex;
+  gap: 0.5rem;
+  color: #fff;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .container .nav-auth-links {
+    display: none;
+  }
+}
+.container .nav-auth-links .nav-auth-login_auth {
+  border: 1px solid grey;
+  color: #000 !important;
+}
+.container a {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.container .nav-btn-primary {
+  color: #fff;
+  align-items: center;
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}/*# sourceMappingURL=Navbar.module.css.map */

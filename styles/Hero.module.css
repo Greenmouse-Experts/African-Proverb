@@ -1,0 +1,248 @@
+.hero-container {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100vh;
+  position: relative;
+}
+.hero-container .hero-contentparent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  min-height: 70vh;
+}
+.hero-container .hero-contentparent .hero-content {
+  width: 75%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 39px;
+  padding: 0rem 2rem;
+  margin: 0;
+}
+@media screen and (max-width: 1200px) {
+  .hero-container .hero-contentparent .hero-content {
+    width: 90%;
+  }
+}
+.hero-container .hero-contentparent .hero-content .suggest {
+  padding: 10px;
+  border-radius: 2rem;
+  color: #fff;
+  background: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: var(--box-shadow);
+  animation: glowing 1300ms infinite;
+}
+@keyframes glowing {
+  0% {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 3px var(--primary-color);
+  }
+  50% {
+    background-color: #bb692a;
+    box-shadow: 0 0 10px #bb692a;
+  }
+  100% {
+    background-color: #bb752a;
+    box-shadow: 0 0 3px #bb752a;
+  }
+}
+.hero-container .hero-contentparent .hero-content .form-background {
+  background: rgba(41, 35, 29, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  gap: 1rem;
+}
+.hero-container .hero-contentparent .hero-content .form-background form {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 768px) {
+  .hero-container .hero-contentparent .hero-content .form-background form {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+.hero-container .hero-contentparent .hero-content .form-background form .Input-box {
+  width: 40%;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .hero-container .hero-contentparent .hero-content .form-background form .Input-box {
+    width: 100%;
+  }
+}
+.hero-container .hero-contentparent .hero-content .form-background form .Input-box input {
+  height: 43px;
+  width: 100%;
+  max-width: 768px;
+  border-radius: 2rem;
+  padding-left: 1rem;
+  font-family: Mulish, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--input-color);
+  outline: none;
+  padding: 1rem;
+  border: none;
+  box-sizing: border-box;
+}
+.hero-container .hero-contentparent .hero-content .form-background form .Input-box .predictiveSearch {
+  width: 100%;
+  list-style: none;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: 1px solid grey;
+  padding: 0;
+  margin-top: 3rem;
+  padding: 0;
+  border-radius: 10px;
+  position: absolute;
+  top: -1px;
+  z-index: 100;
+}
+.hero-container .hero-contentparent .hero-content .form-background form .Input-box .predictiveSearch li {
+  width: 100%;
+  border-radius: 10px;
+  gap: 1rem;
+  align-items: center;
+  display: flex;
+  padding-left: 0.9em;
+  color: #000;
+  font-family: Mulish;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  cursor: pointer;
+}
+.hero-container .hero-contentparent .hero-content .form-background form .Input-box .predictiveSearch li:hover {
+  background-color: #f0f0f0;
+}
+.hero-container .hero-contentparent .hero-content .form-background form .search-form-select {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .hero-container .hero-contentparent .hero-content .form-background form .search-form-select {
+    width: 100%;
+  }
+}
+.hero-container .hero-contentparent .hero-content .form-background form .search-form-select .categories {
+  width: 50%;
+}
+.hero-container .hero-contentparent .hero-content .form-background form .search-form-select .ethnic {
+  width: 50%;
+}
+.hero-container .hero-contentparent .hero-content .form-background form .search-form-select select {
+  height: 43px;
+  border-radius: 2rem;
+  padding: 0rem 1rem;
+  font-family: Mulish;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--input-color);
+  border: none;
+  outline: none;
+}
+.hero-container .hero-contentparent .hero-content .form-background form button {
+  height: 43px;
+  width: 20%;
+  align-items: center;
+  border-radius: 2rem;
+  gap: 1rem;
+  justify-content: center;
+  display: flex;
+  font-family: Mulish;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0em;
+  background: var(--primary-color);
+  color: var(--white-color);
+  cursor: pointer;
+  border: none;
+}
+@media screen and (max-width: 768px) {
+  .hero-container .hero-contentparent .hero-content .form-background form button {
+    width: 60%;
+  }
+}
+.hero-container .hero-contentparent .hero-content .list-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+}
+.hero-container .hero-contentparent .hero-content .list-buttons li {
+  border-radius: 1.5rem;
+  border: 2px solid #bb5d06;
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.hero-container .hero-contentparent .hero-content .list-buttons li a {
+  color: #fff;
+  font-family: Mulish;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+}
+.hero-container .hero-contentparent .hero-content h1 {
+  color: #fff;
+  max-width: 666px;
+  font-family: Millik;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .hero-container .hero-contentparent .hero-content h1 {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .hero-container .hero-contentparent .hero-content h1 {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 395px) {
+  .hero-container .hero-contentparent .hero-content h1 {
+    font-size: 1rem;
+    line-height: 25px;
+  }
+}
+.hero-container .base-pattern {
+  position: absolute;
+  height: 41px;
+  bottom: 0;
+  width: 100%;
+  background-repeat: no-repeat;
+  background: url(../public/img/basepattern.png);
+  opacity: 0.7;
+  filter: drop-shadow(0px 10px 20px #000000);
+}/*# sourceMappingURL=Hero.module.css.map */
