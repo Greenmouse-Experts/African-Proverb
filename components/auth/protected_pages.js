@@ -11,6 +11,7 @@ const ProtectedPages = ({ children }) => {
     "/",
     "/auth/signup",
     "/auth/activate",
+    "/auth/corporate-signup",
     "/auth/forget_password",
     "/auth/reset_password",
     "/add_proverb",
