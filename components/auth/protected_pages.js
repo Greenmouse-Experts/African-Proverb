@@ -31,6 +31,7 @@ const ProtectedPages = ({ children }) => {
     "/dashboard",
     "/dashboard/EmployeePage",
     "/dashboard/NotificationPage",
+    "/dashboard/Proverb",
   ];
   
 
