@@ -1,5 +1,6 @@
 import MultiStepContext from "@/context/StepContext";
 import "@/styles/globals.css";
+// import '../style.css';
 
 import { useState, useEffect } from "react";
 import { Provider } from "react-redux";

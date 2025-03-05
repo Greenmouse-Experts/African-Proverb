@@ -1,11 +1,15 @@
 import React from 'react';
-import Layout from './components/Layout/Layout';
+import Layout from '../../components/Layout/Layout';
+import Dashboard from '@/pages/dashboard/Dashboard';
+
 
 function App() {
   return (
-    <Layout>
-      <h1 className="text-xl font-bold">Welcome to Dashboard!</h1>
-    </Layout>
+    <div style={{ fontFamily: '"Montserrat", sans-serif', fontOpticalSizing: 'auto' }}>
+      <Layout>
+        <Dashboard />
+      </Layout>
+    </div>
   );
 }
 

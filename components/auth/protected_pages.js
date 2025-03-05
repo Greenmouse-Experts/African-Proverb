@@ -4,10 +4,12 @@ import { useEffect } from "react";
 
 const ProtectedPages = ({ children }) => {
   const router = useRouter();
+  const DashboardRoute = "/dashboard";
   const loginRoute = "/auth/login";
 
   const allowedPaths = [
     loginRoute,
+    DashboardRoute,
     "/",
     "/auth/signup",
     "/auth/activate",
@@ -26,8 +28,11 @@ const ProtectedPages = ({ children }) => {
     "/payment_success",
     "/404",
     // Dashboard
-    "/dashboard/index",
+    "/dashboard",
+    "/dashboard/EmployeePage",
+    "/dashboard/NotificationPage",
   ];
+  
 
   useEffect(() => {
     const token = Cookies.get("userToken");
