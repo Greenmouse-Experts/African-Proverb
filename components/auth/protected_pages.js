@@ -12,6 +12,7 @@ const ProtectedPages = ({ children }) => {
     "/auth/signup",
     "/auth/activate",
     "/auth/corporate-signup",
+    "/auth/verify-email",
     "/auth/forget_password",
     "/auth/reset_password",
     "/add_proverb",
@@ -24,6 +25,8 @@ const ProtectedPages = ({ children }) => {
     "/privacy_policy",
     "/payment_success",
     "/404",
+    // Dashboard
+    "/dashboard/index",
   ];
 
   useEffect(() => {
