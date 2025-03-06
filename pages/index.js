@@ -9,10 +9,10 @@ import RealCousin from "@/components/home/realcousin";
 import Testimonials from "@/components/home/testimonials";
 import Footer from "@/components/home/footer";
 import Sidebar from "@/components/reuse/sidebar";
-// import Twitter from "../public/icon/twitter.svg";
-// import Instagram from "../public/icon/instagram.svg";
-// import Linkedin from "../public/icon/wlinkedin.svg";
-// import Facebook from "../public/icon/Facebook.svg";
+import Twitter from "../public/icon/twitter.svg";
+import Instagram from "../public/icon/instagram.svg";
+import Linkedin from "../public/icon/wlinkedin.svg";
+import Facebook from "../public/icon/facebook.svg";
 import Logo from "../public/icon/whitelogo.svg";
 import axios from "axios";
 import { ProfileContext } from "@/context/profileContext";
@@ -110,10 +110,10 @@ export default function Home({ categories }) {
           <Navbar
             linksColor="light"
             openSidebar={toggleSidebar}
-            // Twitter={Twitter}
-            // Instagram={Instagram}
-            // Linkedin={Linkedin}
-            // Facebook={Facebook}
+            Twitter={Twitter}
+            Instagram={Instagram}
+            Linkedin={Linkedin}
+            Facebook={Facebook}
             Logo={Logo}
           />
         </Hero>

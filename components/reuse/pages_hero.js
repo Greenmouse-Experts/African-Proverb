@@ -7,7 +7,7 @@ import Link from "next/link";
 import Twitter from "../../public/icon/twitter.svg";
 import Instagram from "../../public/icon/instagram.svg";
 import Linkedin from "../../public/icon/wlinkedin.svg";
-import Facebook from "../../public/icon/Facebook.svg";
+import Facebook from "../../public/icon/facebook.svg";
 import Logo from "../../public/icon/whitelogo.svg";
 
 
