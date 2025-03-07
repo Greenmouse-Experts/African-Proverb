@@ -33,13 +33,14 @@ const RegisterDropdown = () => {
           <p
             className="block px-1 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer text-sm"
           >
-            <Link href={"/auth/corporate-signup"}>Individual Account</Link>
+            <Link href={"/"}>Individual Account</Link>
           </p>
           <p
             className="block px-1 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer text-sm"
 
           >
-            Corporate Account
+            <Link href={"/auth/corporate-signup"}>Corporate Account</Link>
+            
           </p>
         </div>
       )}
