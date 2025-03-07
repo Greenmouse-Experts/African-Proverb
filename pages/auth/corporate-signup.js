@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, Eye, EyeOff } from 'lucide-react';
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Register = () => {
   const [step, setStep] = useState(1);
@@ -10,18 +11,20 @@ const Register = () => {
   const prevStep = () => setStep(1);
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="min-h-screen flex">
       {/* Left Side - Image Section */}
-      <div className="hidden md:flex w-1/2 bg-[#BB5D06] justify-center items-center">
-        <img
-          src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1741078619/We-Immersive/africa-logo.cc06fc01_vkfvjj.png"
-          alt="African Art"
-          className="max-w-[100%] object-contain"
-        />
+      <div className="hidden md:flex w-1/2 bg-[#BB5D06] justify-center items-center fixed h-screen">
+        <Link href="/">
+          <img
+            src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1741078619/We-Immersive/africa-logo.cc06fc01_vkfvjj.png"
+            alt="African Art"
+            className="max-w-[100%] object-contain"
+          />
+        </Link>
       </div>
 
       {/* Right Side - Form Section */}
-      <div className="w-full md:w-1/2 flex justify-center items-center bg-[#fff] p-6" style={{ fontFamily: 'Mulish' }}>
+      <div className="w-full md:w-1/2 ml-auto flex justify-center items-center bg-white p-6  overflow-y-auto">
         <div className="w-full max-w-[600px] space-y-6">
           {step === 2 && (
             <ChevronLeft
@@ -199,10 +202,9 @@ const Register = () => {
               </div>
 
               <button
-                type="submit"
                 className="w-full h-11 bg-[#6D6D6D] text-white rounded-lg"
               >
-                Sign up
+                <Link href={"/auth/verify-email"}>Sign up</Link>
               </button>
             </form>
           )}

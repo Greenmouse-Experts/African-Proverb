@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from "next/link";
 
 const Register = () => {
     return (
@@ -35,7 +36,7 @@ const Register = () => {
                             type="submit"
                             className="w-full h-11 bg-[#6D6D6D] text-white rounded-lg"
                         >
-                            Verify
+                            <Link href={"/dashboard"}>Verify</Link>
                         </button>
                     </form>
                 </div>
