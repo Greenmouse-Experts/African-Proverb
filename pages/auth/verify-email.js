@@ -33,7 +33,6 @@ const Register = () => {
                             <input type="email" className="w-full h-11 px-3 border border-gray-300 rounded-lg outline-none placeholder:text-gray-400" />
                         </div>
                         <button
-                            type="submit"
                             className="w-full h-11 bg-[#6D6D6D] text-white rounded-lg"
                         >
                             <Link href={"/dashboard"}>Verify</Link>
