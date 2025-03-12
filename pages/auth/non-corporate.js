@@ -42,7 +42,7 @@ export default function RegisterPage() {
       </div>
 
       {/* Right Side */}
-      <div className="w-full md:w-1/2 ml-auto flex justify-center items-center bg-white p-6 overflow-y-auto">
+      <div className="w-full md:w-1/2 ml-auto flex justify-center items-center bg-white p-6 overflow-y-auto h-screen">
         <div className="w-full max-w-[600px] space-y-6">
           {step > 1 && (
             <ChevronLeft className="cursor-pointer text-gray-700" onClick={() => setStep(step - 1)} size={30} />
@@ -55,20 +55,24 @@ export default function RegisterPage() {
             className="h-20 mx-auto"
           />
 
-          <h2 className="text-xl font-semibold text-center">Create an account for Corporate Client</h2>
+          <h2 className="text-xl font-semibold text-center">Create an account for Non-Corporate Client</h2>
 
           {/* Step 1: Basic Info */}
           {step === 1 && (
             <form>
               <div>
-                <label className="block text-base font-light text-[#0A0A0A] mb-3">First Name</label>
-                <input type="text" className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none" placeholder="Enter your first name" />
-              </div>
-              <div>
-                <label className="block text-base font-light text-[#0A0A0A] mb-3">Last Name</label>
-                <input type="text" className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none" placeholder="Enter your last name" />
-              </div>
-              <button type="button" className="w-full h-14 bg-[#BB5D06] text-white rounded-md mt-4" onClick={() => setStep(2)}>Next</button>
+                  <label className="block text-base font-light text-[#0A0A0A] mb-3">First Name</label>
+                  <input type="text" className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3" placeholder='Enter your first name' />
+                </div>
+                <div>
+                  <label className="block text-base font-light text-[#0A0A0A] mb-3">Last Name</label>
+                  <input type="text" className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3" placeholder='Enter your last name' />
+                </div>
+                <div>
+                  <label className="block text-base font-light text-[#0A0A0A] mb-3">Phone Number</label>
+                  <input type="tel" className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3" placeholder='Enter your phone number' />
+                </div>
+              <button type="button" className="w-full h-14 bg-[#BB5D06] text-white rounded-md mt-6" onClick={() => setStep(2)}>Next</button>
             </form>
           )}
 
@@ -78,7 +82,7 @@ export default function RegisterPage() {
               <div>
                 <label className="block text-base font-light text-[#0A0A0A] mb-3">Password</label>
                 <div className="relative">
-                  <input type={passwordVisible ? 'text' : 'password'} className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none" placeholder="Enter your password" />
+                  <input type={passwordVisible ? 'text' : 'password'} className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none mb-3" placeholder="Enter your password" />
                   <span className="absolute right-3 top-5 cursor-pointer" onClick={() => setPasswordVisible(!passwordVisible)}>
                     {passwordVisible ? <EyeOff /> : <Eye />}
                   </span>
@@ -87,13 +91,13 @@ export default function RegisterPage() {
               <div>
                 <label className="block text-base font-light text-[#0A0A0A] mb-3">Confirm Password</label>
                 <div className="relative">
-                  <input type={passwordVisible ? 'text' : 'password'} className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none" placeholder="Confirm your password" />
+                  <input type={passwordVisible ? 'text' : 'password'} className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none" placeholder="Confirm your password mb-3" />
                   <span className="absolute right-3 top-5 cursor-pointer" onClick={() => setPasswordVisible(!passwordVisible)}>
                     {passwordVisible ? <EyeOff /> : <Eye />}
                   </span>
                 </div>
               </div>
-              <button type="button" className="w-full h-14 bg-[#BB5D06] text-white rounded-md mt-4" onClick={() => setStep(3)}>Next</button>
+              <button type="button" className="w-full h-14 bg-[#BB5D06] text-white rounded-md mt-6" onClick={() => setStep(3)}>Next</button>
             </form>
           )}
 
@@ -102,7 +106,7 @@ export default function RegisterPage() {
             <form>
               <div>
                 <label className="block text-base font-light text-[#0A0A0A] mb-3">Annual Subscription</label>
-                <select className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none">
+                <select className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none  mb-6">
                   <option value="" disabled selected hidden>Select annual subscription</option>
                   <option value="tech">Technology</option>
                   <option value="finance">Finance</option>
