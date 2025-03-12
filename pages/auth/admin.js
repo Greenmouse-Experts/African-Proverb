@@ -63,7 +63,7 @@ export default function LoginPage() {
             />
           </div>
 
-          <h2 className="text-2xl font-semibold text-center">Hello Again!</h2>
+          <h2 className="text-2xl font-semibold text-center">Admin Login</h2>
 
           <form className="space-y-4">
             {/* Email */}

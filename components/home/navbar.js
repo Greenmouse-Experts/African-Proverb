@@ -85,7 +85,7 @@ const Navbar = ({ openSidebar, Logo, linksColor = "dark" }) => {
       ) : (
         <div className={NavStyles["nav-auth-links"]} style={{ display: "flex", gap: "10px", alignItems: "center" }}>
           <Link
-            href="/auth/login"
+            href="/auth/login-cover"
             className={`${NavStyles["nav-auth-login"]} ${linksColor === "light" ? `text-white` : linksColor === "dark" ? "text-black" : ""}`}
           >
             Login

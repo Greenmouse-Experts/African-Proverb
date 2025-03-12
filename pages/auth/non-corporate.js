@@ -117,7 +117,7 @@ export default function RegisterPage() {
                 <label htmlFor="terms" className="text-base font-light">I agree to the <span className="text-[#BB5D06]">Privacy Policy</span> and <span className="text-[#BB5D06]">Terms of Use</span></label>
               </div>
               <button className="w-full h-14 bg-[#BB5D06] text-white rounded-md mt-6">Register</button>
-              <p className="mt-6 text-gray-600 font-light">Already have an account? <a href="#" className="text-[#BB5D06]">Sign In</a></p>
+              <p className="mt-6 text-gray-600 font-light">Already have an account? <Link href={"/auth/login"} className="text-[#BB5D06] font-light"> Sign In</Link></p>
             </form>
           )}
         </div>

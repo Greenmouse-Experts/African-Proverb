@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, Eye, EyeOff } from 'lucide-react';
 import Link from "next/link";
+import Select from "react-select";
 
 export default function RegisterPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('admin');
   const [step, setStep] = useState(1);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [showPromoInput, setShowPromoInput] = useState(false);
 
   const nextStep = () => setStep(2);
   const prevStep = () => setStep(1);
@@ -16,6 +18,24 @@ export default function RegisterPage() {
     "Discover Proverbs from Various Cultures",
     "Wisdom, Unity, and Perseverance in Words"
   ];
+
+  const [selectedLanguages, setSelectedLanguages] = useState([]);
+
+  const languageOptions = [
+    { value: "Yoruba", label: "Yoruba" },
+    { value: "Igbo", label: "Igbo" },
+    { value: "Hausa", label: "Hausa" },
+    { value: "Ijaw", label: "Ijaw" },
+    { value: "Twi", label: "Twi" },
+  ];
+
+  // Auto-change text every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="flex w-full">
@@ -46,7 +66,7 @@ export default function RegisterPage() {
       </div>
 
       {/* Right Side */}
-      <div className="w-full md:w-1/2 ml-auto flex justify-center items-center bg-white p-6  overflow-y-auto">
+      <div className="w-full md:w-1/2 ml-auto flex justify-center items-center bg-white p-6 overflow-y-auto h-screen">
         <div className="w-full max-w-[600px] space-y-6">
           {step === 2 && (
             <ChevronLeft
@@ -166,21 +186,64 @@ export default function RegisterPage() {
                   preferred language without subsidize commercials  </label>
 
                 <div>
-                  <label className="block text-base font-light text-[#0A0A0A] mb-3">Select Langauage  </label>
-                  <select
-                    className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3" required
-                  >
-                    <option value="" disabled selected hidden>Select one </option>
-                    <option value="tech">Yoruba</option>
-                    <option value="finance">Igbo</option>
-                    <option value="finance">Hausa</option>
-                  </select>
+                  <label className="block text-base font-light text-[#0A0A0A] mb-3">
+                    Select Language <span className="text-red-500">*</span>
+                  </label>
+                  <Select
+                    isMulti
+                    options={languageOptions}
+                    value={selectedLanguages}
+                    onChange={setSelectedLanguages}
+                    className="outline-none placeholder:text-[#A2A3A9] font-light text-sm w-full"
+                    classNamePrefix="react-select"
+                    placeholder="Select one or more"
+                  />
                 </div>
 
-                <div className="flex items-center space-x-2">
-                  <label className="text-base font-light text-[#0A0A0A] mb-3 mt-3">Did you get a promo code from a friend?</label>
-                  <input type="radio" name="promo" value="yes" className="ml-2" /> Yes
-                  <input type="radio" name="promo" value="no" className="ml-2" defaultChecked /> No
+                <div>
+                  {/* Promo Code Question */}
+                  <div className="flex flex-col space-y-2">
+                    <label className="text-base font-light text-[#0A0A0A] mb-3 mt-3">
+                      Did you get a promo code from a friend?
+                    </label>
+                    <div className="flex items-center space-x-4">
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="promo"
+                          value="yes"
+                          className="cursor-pointer"
+                          onChange={() => setShowPromoInput(true)}
+                        />
+                        <span>Yes</span>
+                      </label>
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="promo"
+                          value="no"
+                          className="cursor-pointer"
+                          onChange={() => setShowPromoInput(false)}
+                          defaultChecked
+                        />
+                        <span>No</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Promo Code Input (Visible Only If "Yes" is Selected) */}
+                  {showPromoInput && (
+                    <div className="mt-4">
+                      <label className="block text-base font-light text-[#0A0A0A] mb-3">
+                        Enter Promo Code
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter your promo code"
+                        className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3"
+                      />
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center space-x-2">
                   <input type="checkbox" id="terms" className="w-5 h-5 mt-3" />
@@ -190,7 +253,7 @@ export default function RegisterPage() {
                 </div>
                 <button className="w-full h-14 bg-[#BB5D06] text-white rounded-md mt-6">Register</button>
                 <p className="mt-6 text-gray-600 font-light">
-                  Already have an account? <a href="#" className="text-[#BB5D06] font-light">Sign In </a>
+                  Already have an account? <Link href="/auth/admin" className="text-[#BB5D06] font-medium hover:underline"> Sign In</Link>
                 </p>
               </form>
             )
@@ -203,7 +266,7 @@ export default function RegisterPage() {
                 </div>
                 <button type="button" className="w-full h-14 bg-[#858585] text-white rounded-md mt-4" onClick={() => setStep(2)}>Next</button>
                 <p className="mt-6 text-gray-600 font-light">
-                  Already have an account? <a href="#" className="text-[#BB5D06] font-light">Sign Up</a>
+                  Already have an account? <Link href="/auth/student-login" className="text-[#BB5D06] font-medium hover:underline"> Sign In</Link>
                 </p>
               </form>
             ) : step === 2 ? (
@@ -283,21 +346,64 @@ export default function RegisterPage() {
                   preferred language without subsidize commercials  </label>
 
                 <div>
-                  <label className="block text-base font-light text-[#0A0A0A] mb-3">Select Langauage  </label>
-                  <select
-                    className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3" required
-                  >
-                    <option value="" disabled selected hidden>Select one </option>
-                    <option value="tech">Yoruba</option>
-                    <option value="finance">Igbo</option>
-                    <option value="finance">Hausa</option>
-                  </select>
+                  <label className="block text-base font-light text-[#0A0A0A] mb-3">
+                    Select Language <span className="text-red-500">*</span>
+                  </label>
+                  <Select
+                    isMulti
+                    options={languageOptions}
+                    value={selectedLanguages}
+                    onChange={setSelectedLanguages}
+                    className="outline-none placeholder:text-[#A2A3A9] font-light text-sm w-full"
+                    classNamePrefix="react-select"
+                    placeholder="Select one or more"
+                  />
                 </div>
 
-                <div className="flex items-center space-x-2">
-                  <label className="text-base font-light text-[#0A0A0A] mb-3 mt-3">Did you get a promo code from a friend?</label>
-                  <input type="radio" name="promo" value="yes" className="ml-2" /> Yes
-                  <input type="radio" name="promo" value="no" className="ml-2" defaultChecked /> No
+                <div>
+                  {/* Promo Code Question */}
+                  <div className="flex flex-col space-y-2">
+                    <label className="text-base font-light text-[#0A0A0A] mb-3 mt-3">
+                      Did you get a promo code from a friend?
+                    </label>
+                    <div className="flex items-center space-x-4">
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="promo"
+                          value="yes"
+                          className="cursor-pointer"
+                          onChange={() => setShowPromoInput(true)}
+                        />
+                        <span>Yes</span>
+                      </label>
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="promo"
+                          value="no"
+                          className="cursor-pointer"
+                          onChange={() => setShowPromoInput(false)}
+                          defaultChecked
+                        />
+                        <span>No</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Promo Code Input (Visible Only If "Yes" is Selected) */}
+                  {showPromoInput && (
+                    <div className="mt-4">
+                      <label className="block text-base font-light text-[#0A0A0A] mb-3">
+                        Enter Promo Code
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter your promo code"
+                        className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3"
+                      />
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center space-x-2">
                   <input type="checkbox" id="terms" className="w-5 h-5 mt-3" />
@@ -308,7 +414,7 @@ export default function RegisterPage() {
                 <button className="w-full h-14 bg-[#BB5D06] text-white rounded-md mt-6">Register</button>
 
                 <p className="mt-6 text-gray-600 font-light">
-                  Already have an account? <a href="#" className="text-[#BB5D06] font-light">Sign In </a>
+                  Already have an account? <Link href="/auth/student-login" className="text-[#BB5D06] font-medium hover:underline"> Sign In</Link>
                 </p>
               </form>
             )

@@ -58,22 +58,22 @@ export default function RegisterPage() {
                     </Link>
                 </div>
                 <h2 className="text-xl font-semibold mb-6">Create an Account</h2>
-                <Link href={"/auth/non-corporate"}>
+                <Link href={"/auth/login"}>
                     <button className="w-80 p-4 border rounded-lg flex flex-col items-center text-lg mb-6 hover:bg-gray-100">
                         <User size={32} className="text-[#BB5D06] mb-2" />
-                        Register as <br /> Non-Corporate Client
+                        Login as an <br /> Individual
                     </button>
                 </Link>
 
-                <Link href={"/auth/corporate-signup"}>
+                <Link href={"/auth/student-login"}>
                     <button className="w-80 p-4 border rounded-lg flex flex-col items-center text-lg hover:bg-gray-100">
                         <Briefcase size={32} className="text-[#BB5D06] mb-2" />
-                        Register as
-                        <br />a Corporate Client
+                        Login as an
+                        <br /> Student
                     </button>
                 </Link>
                 <p className="mt-6 text-gray-600">
-                    Already have an account?  <Link href={"/auth/login-cover"} className="text-[#BB5D06] font-light"> Sign In</Link>
+                I don’t have an account? <Link href="/auth/cover" className="text-[#BB5D06] font-semibold">Sign Up</Link> 
                 </p>
             </div>
         </div>
