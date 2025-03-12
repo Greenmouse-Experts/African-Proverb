@@ -18,7 +18,7 @@ const RegisterDropdown = () => {
   return (
     <div className="relative inline-block text-left">
       <div
-        className="flex items-center justify-between text-white text-sm bg-[#BB5D06] font-bold cursor-pointer p-3 px-4 rounded-lg w-[180px]"
+        className="flex items-center justify-between text-white text-sm bg-[#BB5D06] font-bold cursor-pointer p-3 px-4 rounded-lg w-[200px]"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>Register</span>
@@ -29,18 +29,18 @@ const RegisterDropdown = () => {
 
       {isOpen && (
         <div className="absolute left-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-           
+
           <p
             className="block px-1 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer text-sm"
           >
-            <Link href={"/"}>Individual Account</Link>
+            <Link href={"/auth/cover"}> Non-Corporate Client</Link>
           </p>
           <p
             className="block px-1 py-3 text-gray-700 hover:bg-gray-100 cursor-pointer text-sm"
 
           >
-            <Link href={"/auth/corporate-signup"}>Corporate Account</Link>
-            
+            <Link href={"/auth/cover"}>Corporate Client</Link>
+
           </p>
         </div>
       )}
