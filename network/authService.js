@@ -27,6 +27,11 @@ export const ResendEmailVerificationLink = (email) => {
   const url = `/accounts/resend-email`;
   return http.postData(email, url);
 };
+export const CorporateSignUp = (payload) => {
+  const http = new HttpService();
+  const url = `/cooperate-auth/cooperate-signup`;
+  return http.postDataWithoutToken(payload, url);
+};
 
 // export const UpdatePassword = () => {
 //     const http = new HttpService();

@@ -206,3 +206,8 @@ export const searchProverb = (url) => {
   const http = new HttpService();
   return http.getData(url);
 };
+export const getSubscriptions = () => {
+  const http = new HttpService();
+  const url = "/api/packages/"
+  return http.getData(url);
+};
