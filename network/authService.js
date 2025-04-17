@@ -1,4 +1,5 @@
 import HttpService from "./httpService";
+import AxiosService from "./axiosService";
 
 export const Login = (payload) => {
   const http = new HttpService();
@@ -27,8 +28,9 @@ export const ResendEmailVerificationLink = (email) => {
   const url = `/accounts/resend-email`;
   return http.postData(email, url);
 };
+
 export const CorporateSignUp = (payload) => {
-  const http = new HttpService();
+  const http = new AxiosService();
   const url = `/cooperate-auth/cooperate-signup`;
   return http.postDataWithoutToken(payload, url);
 };

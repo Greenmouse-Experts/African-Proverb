@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { ChevronLeft, Eye, EyeOff } from 'lucide-react';
 import Link from "next/link";
 import Select from "react-select";
@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { getLanguages, getSubscriptions } from '@/network/apiService';
 import { CorporateSignUp } from '@/network/authService';
 import { toast } from 'react-toastify';
+import { EthnicContext } from '@/context/ethnicContext';
 
 export default function RegisterPage() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -15,9 +16,41 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [showPromoInput, setShowPromoInput] = useState(false);
-  const [languages, setLanguages] = useState([]);
-  const [languageOptions, setLanguageOptions] = useState([]);
+  const [languages, setLanguages] = useState(
+    [
+      {
+        id: "L0E1B2C3-D4E5-M6G7-X8Y9-J0K1L2MMN4O5",
+        name: "luxemborg"
+      },
+      {
+        id: "L0E1D2C3-D4E5-M6G7-X8Y9-J0K5L2MM24O5",
+        name: "NETHERLAND"
+      },
+      {
+        id: "L0E1Q2C3-D4E5-M6G7-X8Y9-J0K3L4MMM4O5",
+        name: "danish"
+      }
+    ]
+  );
+  const [languageOptions, setLanguageOptions] = useState(
+    [
+      {
+        value: "L0E1B2C3-D4E5-M6G7-X8Y9-J0K1L2MMN4O5",
+        label: "luxemborg"
+      },
+      {
+        value: "L0E1D2C3-D4E5-M6G7-X8Y9-J0K5L2MM24O5",
+        label: "NETHERLAND"
+      },
+      {
+        value: "L0E1Q2C3-D4E5-M6G7-X8Y9-J0K3L4MMM4O5",
+        label: "danish"
+      }
+    ]
+  );
   const [subscriptionPackages, setPackages] = useState([]);
+
+  const { ethnicsList, loggedInEthnicsList } = useContext(EthnicContext);
 
   const nextStep = () => setStep(2);
   const prevStep = () => setStep(1);
@@ -107,22 +140,27 @@ export default function RegisterPage() {
       if (step === 1) {
         nextStep();
       } else {
-        values.ethnicIds = values.ethnicIds.map(x => x.value);
+
         console.log('Admin form submitted:', values);
 
         const { hasPromoCode, terms, ...registrationData } = values;
+        registrationData.ethnicIds = registrationData.ethnicIds.map(x => x.value);
+
+        if (registrationData.promoCode === '') {
+          delete registrationData.promoCode
+        }
 
         setLoading(true);
         CorporateSignUp(registrationData)
           .then((res) => {
             if (res.status === 201) {
-              console.log(res);
               // setPaymentBannerOpen(true);
 
               // setRegistrationSuccessModal(true);
 
-              router.push(`/register_payment_success/?email=${registrationData?.register?.email}&linkOrigin=signup`);
-              setRegistrationLoading(false);
+              // router.push(`/auth/verify-email`);
+              router.push(`/auth/admin`);
+              setLoading(false);
             }
             if (res.status === 500) {
               // console.log(res.response)
@@ -197,7 +235,7 @@ export default function RegisterPage() {
 
   // Auto-change text every 4 seconds
   useEffect(() => {
-    getLanguagesData();
+    // getLanguagesData();
     getPackages();
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % texts.length);
@@ -207,15 +245,15 @@ export default function RegisterPage() {
 
 
   const getLanguagesData = () => {
-    getLanguages().then((res) => {
-      setLanguages(res.data);
-      setLanguageOptions(res.data.map((language) => ({
-        value: language.id,
-        label: language.name
-      })));
-    }).catch((err) => {
-      return {};
-    })
+    setLanguageOptions(ethnicsList.map((language) => ({
+      value: language.id,
+      label: language.name
+    })));
+
+    setLanguages(ethnicsList.map((language) => ({
+      id: language.id,
+      name: language.name
+    })))
   }
 
 
@@ -466,9 +504,14 @@ export default function RegisterPage() {
                       value={adminFormik.values.preferredEthnicId}
                     >
                       <option value="" disabled>Select one</option>
-                      {languages.map((language, index) => (
-                        <option key={index} value={language.id}>{language.name}</option>
-                      ))}
+                      {languages &&
+                        languages?.map((item) => {
+                          return (
+                            <option key={item.id} value={item.id}>
+                              {item.name}
+                            </option>
+                          );
+                        })}
                     </select>
                     {adminFormik.touched.preferredEthnicId && adminFormik.errors.preferredEthnicId ? (
                       <div className="text-red-500 text-sm">{adminFormik.errors.preferredEthnicId}</div>
