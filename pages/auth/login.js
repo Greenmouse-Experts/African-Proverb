@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, Lock } from "lucide-react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { CorporateLogin } from "@/network/authService";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const togglePasswordVisibility = () => setPasswordVisible(!passwordVisible);
 
@@ -14,13 +19,50 @@ export default function LoginPage() {
     "Wisdom, Unity, and Perseverance in Words",
   ];
 
-  // Auto-change text every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % texts.length);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  // Formik + Yup setup
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      remember: false,
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
+      password: Yup.string().required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      const loginPayload = values;
+
+      delete loginPayload.remember;
+
+      setLoading(true);
+
+      CorporateLogin(loginPayload).then((res) => {
+        console.log(res.data)
+        login
+        toast.success('Logged in successfully', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        //router.push(`/auth/login`);
+        setLoading(false);
+      })
+        .catch((err) => {
+          setLoading(false);
+          toast.error(err?.response?.data?.data?.message);
+        });
+
+      // Do login action here
+    },
+  });
 
   return (
     <div className="flex w-full">
@@ -43,9 +85,8 @@ export default function LoginPage() {
           {texts.map((_, index) => (
             <div
               key={index}
-              className={`w-5 h-1 rounded-full cursor-pointer transition-all duration-300 ${
-                activeIndex === index ? "bg-white" : "bg-gray-400"
-              }`}
+              className={`w-5 h-1 rounded-full cursor-pointer transition-all duration-300 ${activeIndex === index ? "bg-white" : "bg-gray-400"
+                }`}
               onClick={() => setActiveIndex(index)}
             ></div>
           ))}
@@ -65,7 +106,7 @@ export default function LoginPage() {
 
           <h2 className="text-2xl font-semibold text-center">Hello Again!</h2>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={formik.handleSubmit}>
             {/* Email */}
             <div>
               <label className="block text-base font-light text-[#0A0A0A] mb-3">
@@ -73,10 +114,19 @@ export default function LoginPage() {
               </label>
               <input
                 type="email"
+                name="email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
                 placeholder="e.g student@unilag.edu.ng"
-                className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3"
-                required
+                className={`w-full h-14 px-6 border ${formik.touched.email && formik.errors.email
+                  ? "border-red-500"
+                  : "border-gray-300"
+                  } rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-1`}
               />
+              {formik.touched.email && formik.errors.email && (
+                <p className="text-red-500 text-sm">{formik.errors.email}</p>
+              )}
             </div>
 
             {/* Password */}
@@ -90,9 +140,15 @@ export default function LoginPage() {
                 </span>
                 <input
                   type={passwordVisible ? "text" : "password"}
-                  className="w-full pl-10 pr-12 py-4 h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3"
+                  name="password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  className={`w-full pl-10 pr-12 py-4 h-14 px-6 border ${formik.touched.password && formik.errors.password
+                    ? "border-red-500"
+                    : "border-gray-300"
+                    } rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-1`}
                   placeholder="****************"
-                  required
                 />
                 <span
                   className="absolute right-3 top-7 transform -translate-y-1/2 cursor-pointer text-gray-500"
@@ -101,18 +157,31 @@ export default function LoginPage() {
                   {passwordVisible ? <EyeOff size={20} /> : <Eye size={20} />}
                 </span>
               </div>
+              {formik.touched.password && formik.errors.password && (
+                <p className="text-red-500 text-sm">{formik.errors.password}</p>
+              )}
             </div>
 
             {/* Remember Me */}
             <div className="flex items-center">
-              <input type="checkbox" id="remember" className="mr-2" />
+              <input
+                type="checkbox"
+                id="remember"
+                name="remember"
+                onChange={formik.handleChange}
+                checked={formik.values.remember}
+                className="mr-2"
+              />
               <label htmlFor="remember" className="text-gray-600 text-sm">
                 Remember me
               </label>
             </div>
 
             {/* Login Button */}
-            <button className="w-full bg-[#BB5D06] text-white py-3 rounded-md text-lg font-medium hover:bg-[#994A04] transition-all">
+            <button
+              type="submit"
+              className="w-full bg-[#BB5D06] text-white py-3 rounded-md text-lg font-medium hover:bg-[#994A04] transition-all"
+            >
               Login
             </button>
           </form>

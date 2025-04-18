@@ -35,6 +35,12 @@ export const CorporateSignUp = (payload) => {
   return http.postDataWithoutToken(payload, url);
 };
 
+export const CorporateLogin = (payload) => {
+  const http = new AxiosService();
+  const url = `/cooperate-auth/cooperate-signin`;
+  return http.postDataWithoutToken(payload, url);
+}
+
 // export const UpdatePassword = () => {
 //     const http = new HttpService();
 //     const url = `api/public/proverbs/random`;

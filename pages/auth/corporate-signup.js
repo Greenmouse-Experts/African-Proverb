@@ -159,7 +159,7 @@ export default function RegisterPage() {
               // setRegistrationSuccessModal(true);
 
               // router.push(`/auth/verify-email`);
-              router.push(`/auth/admin`);
+              router.push(`/auth/login`);
               setLoading(false);
             }
             if (res.status === 500) {
