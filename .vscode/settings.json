@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
         "Homeproverb"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#4B1B41",
+        "titleBar.activeBackground": "#68265B",
+        "titleBar.activeForeground": "#FDF9FC"
+    }
 }

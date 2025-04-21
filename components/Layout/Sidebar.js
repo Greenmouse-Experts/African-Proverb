@@ -1,85 +1,122 @@
-import React from 'react';
-import { FaThLarge, FaUser, FaBell, FaCog, FaSignOutAlt } from 'react-icons/fa';
-import Link from "next/link";
-import { useRouter } from 'next/router';
-import SidebarItem from './SidebarItem';
+'use client';
 
-function Sidebar({ isOpen, toggleSidebar }) {
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
+import { HiOutlineUsers } from 'react-icons/hi';
+import {
+  MdDashboard,
+  MdOutlineSettings,
+  MdOutlineNotifications,
+  MdOutlineAnalytics,
+  MdOutlineSubscriptions,
+} from 'react-icons/md';
+import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
+import { useState } from 'react';
+
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   const router = useRouter();
-  
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleDropdown = (menu) => {
+    setOpenDropdown(openDropdown === menu ? null : menu);
+  };
+
   const isActive = (path) => router.pathname === path;
 
   return (
-    <aside className={`fixed md:relative top-0 left-0 h-screen bg-white shadow-lg z-50 transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'} w-64`}>
-      <div className="py-6 space-y-6">
-        <div className="px-6">
-          <img
-            src="https://res.cloudinary.com/greenmouse-tech/image/upload/v1741096252/We-Immersive/primarylogo.ebc6ec00_x9uzsw.svg"
-            alt="African Art"
-            className="w-48 object-cover"
-          />
+    <div className="relative">
+      <div
+        className={`fixed md:relative top-0 left-0 h-screen bg-[#9E4D02] text-white p-4 flex flex-col transition-transform duration-300 z-40 ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } md:translate-x-0 md:w-72 w-64`}
+      >
+        {/* User Profile */}
+        <div className="flex flex-col items-center mb-6">
+          <FaUserCircle className="text-8xl md:mt-10 mt-5 mb-2" />
         </div>
-        <nav className="space-y-6 text-base">
 
-          <Link href="/dashboard" passHref>
-            <div className={`${isActive('/dashboard') ? 'bg-gray-100' : ''} rounded-md cursor-pointer`}>
-              <SidebarItem 
-                icon={<FaThLarge />} 
-                label="Dashboard" 
-                iconSize={24} 
-                color={isActive('/dashboard') ? 'text-white' : 'text-black'}
-              />
-            </div>
-          </Link>
+        {/* Sidebar Links */}
+        <nav className="flex-1 space-y-4">
+          <SidebarItem href="/dashboard" icon={<MdDashboard />} text="Dashboard" active={isActive('/dashboard')} />
 
-          <Link href="/dashboard/EmployeePage" passHref>
-            <div className={`${isActive('/dashboard/EmployeePage') ? 'bg-gray-100' : ''} rounded-md cursor-pointer`}>
-              <SidebarItem 
-                icon={<FaUser />} 
-                label="Student/Employee" 
-                iconSize={24} 
-                color={isActive('/dashboard/EmployeePage') ? 'text-white' : 'text-black'}
-              />
-            </div>
-          </Link>
+          <DropdownItem
+            title="User Management"
+            icon={<HiOutlineUsers />}
+            isOpen={openDropdown === 'userManagement'}
+            toggle={() => toggleDropdown('userManagement')}
+            items={[
+              { href: '/dashboard/EmployeePage', text: 'Add Student' },
+              { href: '/clients/manually-register', text: 'Manually Register Student' },
+            ]}
+            router={router}
+          />
 
-          <Link href="/dashboard/NotificationPage" passHref>
-            <div className={`${isActive('/dashboard/NotificationPage') ? 'bg-gray-100' : ''} rounded-md cursor-pointer`}>
-              <SidebarItem 
-                icon={<FaBell />} 
-                label="Notification" 
-                iconSize={24} 
-                color={isActive('/dashboard/NotificationPage') ? 'text-white' : 'text-black'}
-              />
-            </div>
-          </Link>
+          <SidebarItem href="/subscription-billing" icon={<MdOutlineSubscriptions />} text="Subscription & Billing" active={isActive('/subscription-billing')} />
+          <SidebarItem href="/reports-analytics" icon={<MdOutlineAnalytics />} text="Reports & Analytics" active={isActive('/reports-analytics')} />
+          <SidebarItem href="/notifications" icon={<MdOutlineNotifications />} text="Notifications & Messaging" active={isActive('/notifications')} />
 
-          <Link href="/settings" passHref>
-            <div className={`${isActive('/settings') ? 'bg-gray-100' : ''} rounded-md cursor-pointer`}>
-              <SidebarItem 
-                icon={<FaCog />} 
-                label="Settings" 
-                iconSize={24} 
-                color={isActive('/settings') ? 'text-white' : 'text-black'}
-              />
-            </div>
-          </Link>
-
+          <DropdownItem
+            title="Customization & Settings"
+            icon={<MdOutlineSettings />}
+            isOpen={openDropdown === 'settings'}
+            toggle={() => toggleDropdown('settings')}
+            items={[
+              { href: '/corporate-info', text: 'Corporate Information' },
+              { href: '/corporate-list', text: 'Corporate List' },
+            ]}
+            router={router}
+          />
         </nav>
 
-        <div className="mt-auto px-6">
-          <SidebarItem 
-            icon={<FaSignOutAlt />} 
-            label="Sign out" 
-            iconSize={24} 
-            color="text-black"
-          />
+        {/* Setup */}
+        <div className="mt-auto space-y-4">
+          <div>Setup</div>
+          <SidebarItem href="/profile" icon={<FaUserCircle />} text="Profile" active={isActive('/profile')} />
+          <SidebarItem href="/logout" icon={<FaSignOutAlt />} text="Log Out" active={isActive('/logout')} />
         </div>
       </div>
 
-      {isOpen && <div className="fixed inset-0 bg-black opacity-25 md:hidden" onClick={toggleSidebar}></div>}
-    </aside>
+      {/* Mobile Overlay */}
+      {isOpen && (
+        <div className="fixed inset-0 bg-black/30 md:hidden z-30" onClick={toggleSidebar}></div>
+      )}
+    </div>
   );
-}
+};
+
+const SidebarItem = ({ href, icon, text, active }) => (
+  <Link href={href} legacyBehavior>
+    <a
+      className={`flex items-center py-3 px-3 rounded-md cursor-pointer transition-colors ${
+        active ? 'bg-[#5C3711]' : 'hover:bg-[#6A3E17]'
+      }`}
+    >
+      <span className="mr-3 text-lg">{icon}</span> {text}
+    </a>
+  </Link>
+);
+
+const DropdownItem = ({ title, icon, isOpen, toggle, items, router }) => (
+  <div>
+    <button
+      onClick={toggle}
+      className="flex items-center justify-between w-full py-3 px-3 rounded-md cursor-pointer transition-colors hover:bg-[#BB5D06]"
+    >
+      <div className="flex items-center">
+        <span className="mr-3 text-lg">{icon}</span>
+        {title}
+      </div>
+      <span>{isOpen ? <IoIosArrowDown /> : <IoIosArrowForward />}</span>
+    </button>
+    {isOpen && (
+      <div className="ml-6 space-y-2">
+        {items.map((item) => (
+          <SidebarItem key={item.href} href={item.href} icon={null} text={item.text} active={router.pathname === item.href} />
+        ))}
+      </div>
+    )}
+  </div>
+);
 
 export default Sidebar;

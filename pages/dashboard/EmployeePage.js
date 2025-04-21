@@ -1,10 +1,10 @@
 import Layout from '../../components/Layout/Layout';
-import StudentEmployee from '../../components/Layout/StudentEmployee';
+import AddStudent from '../../components/clientComponents/AddStudent';
 
 function EmployeePage() {
   return (
     <Layout>
-      <StudentEmployee />
+      <AddStudent />
     </Layout>
   );
 }

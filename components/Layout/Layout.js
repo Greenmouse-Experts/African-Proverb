@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
-import Footer from './Footer';
-
 function Layout({ children }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
@@ -18,11 +16,6 @@ function Layout({ children }) {
 
         {/* Page Content */}
         <main className="p-6 flex-grow">{children}</main>
-
-        {/* Footer (takes full width) */}
-        <div className="w-full">
-          <Footer />
-        </div>
       </div>
     </div>
   );
