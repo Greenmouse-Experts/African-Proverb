@@ -8,7 +8,8 @@ const nextConfig = {
   },
 
   env: {
-    BASE_URL: "https://api.africanproverbs.com/munaapi",
+    BASE_URL: "https://api.african-proverbs.greenmouseonline.com/munaapi",
+   // BASE_URL: "https://api.africanproverbs.com/munaapi",
     // BASE_URL: "https://dev-api.africanproverbs.com/munaapi",
     NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID:"ca-pub-8847725878665598",
     PAYSTACK_PUBLIC_KEY: "pk_test_d8e9f0b509782f029f31ef7e375a26dbbeaf32c7",

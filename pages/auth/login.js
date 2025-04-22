@@ -1,15 +1,22 @@
-import { useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff, Lock } from "lucide-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { CorporateLogin } from "@/network/authService";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { AuthContext } from "@/context/authContext";
+
 
 export default function LoginPage() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const {login} = useContext(AuthContext);
+
+  const router = useRouter();
 
   const togglePasswordVisibility = () => setPasswordVisible(!passwordVisible);
 
@@ -47,12 +54,11 @@ export default function LoginPage() {
       setLoading(true);
 
       CorporateLogin(loginPayload).then((res) => {
-        console.log(res.data)
-        login
+        login(null, res.data.tokens.access);
         toast.success('Logged in successfully', {
           position: toast.POSITION.TOP_CENTER,
         });
-        //router.push(`/auth/login`);
+        router.push(`/dashboard`);
         setLoading(false);
       })
         .catch((err) => {

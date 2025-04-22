@@ -1,4 +1,12 @@
+import AxiosService from "./axiosService";
 import HttpService from "./httpService";
+
+
+export const getProfileDetails = () => {
+  const http = new AxiosService();
+  const url = `/api/user/profile/full`;
+  return http.getData(url);
+};
 
 export const getEthnics = () => {
   const http = new HttpService();

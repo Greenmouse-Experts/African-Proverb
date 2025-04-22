@@ -18,5 +18,14 @@ class AxiosService {
   postDataWithoutToken = async (payload, url) => {
     return axios.post(this.baseUrl + url, payload);
   };
+
+  getData = async (url) => {
+    const AuthStr = "Bearer ".concat(this.token);
+    return axios.get(this.baseUrl + url, {
+      headers: { "Content-Type": "application/json", Authorization: AuthStr },
+    });
+  };
+
+
 };
 export default AxiosService;

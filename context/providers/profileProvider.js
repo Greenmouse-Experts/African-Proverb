@@ -7,6 +7,7 @@ import {
   getFullDetails,
   getPersonalInfo,
   getUserPicture,
+  getProfileDetails,
 } from "@/network/apiService";
 import useProfileApiCall from "@/hooks/useCallProfileApis";
 import useApiCallProfileApis from "@/hooks/useCallProfileApis";
@@ -115,6 +116,23 @@ const ProfileProvider = ({ children }) => {
     }
   }
 
+  async function getProfileData() {
+    setisLoading(true);
+    try {
+      const [ fullDetails ] =
+        await useApiCallProfileApis([
+          // getUserPicture,
+          getProfileDetails,
+        ]);
+      // setpicture(userpicture);
+      setdetails(fullDetails);
+      setisLoading(false);
+    } catch (error) {
+      seterr(error);
+      setisLoading(false);
+    }
+  }
+
   useEffect(() => {
     if (isAuthenticated) {
       getPersonalInfo().then((res) => setinfo(res));
@@ -123,7 +141,7 @@ const ProfileProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      getAllData();
+      //getAllData();
     }
   }, [updateInfo]);
 
@@ -159,6 +177,7 @@ const ProfileProvider = ({ children }) => {
         favoriteProverbs,
         loading,
         getAllData,
+        getProfileData,
         setdetails,
         setupdateInfo,
         dispatch,
