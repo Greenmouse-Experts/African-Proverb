@@ -38,7 +38,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
         {/* Sidebar Links */}
         <nav className="flex-1 space-y-4">
-          <SidebarItem href="/dashboard" icon={<MdDashboard />} text="Dashboard" active={isActive('/dashboard')} />
+          <SidebarItem href="/clients" icon={<MdDashboard />} text="Dashboard" active={isActive('/clients')} />
 
           <DropdownItem
             title="User Management"
@@ -46,14 +46,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             isOpen={openDropdown === 'userManagement'}
             toggle={() => toggleDropdown('userManagement')}
             items={[
-              { href: '/dashboard/EmployeePage', text: 'Add Student' },
-              { href: '/clients/manually-register', text: 'Manually Register Student' },
+              { href: '/clients/add_student', text: 'Add Student' },
+              { href: '/clients/manually_register', text: 'Manually Register Student' },
             ]}
             router={router}
           />
 
-          <SidebarItem href="/subscription-billing" icon={<MdOutlineSubscriptions />} text="Subscription & Billing" active={isActive('/subscription-billing')} />
-          <SidebarItem href="/reports-analytics" icon={<MdOutlineAnalytics />} text="Reports & Analytics" active={isActive('/reports-analytics')} />
+          <SidebarItem href="/clients/subscription" icon={<MdOutlineSubscriptions />} text="Subscription & Billing" active={isActive('/clients/subscription')} />
+          <SidebarItem href="/clients/analytics" icon={<MdOutlineAnalytics />} text="Reports & Analytics" active={isActive('/clients/analytics')} />
           <SidebarItem href="/notifications" icon={<MdOutlineNotifications />} text="Notifications & Messaging" active={isActive('/notifications')} />
 
           <DropdownItem

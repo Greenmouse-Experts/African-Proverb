@@ -25,7 +25,7 @@ export default function DashboardMain() {
 
 
   return (
-    <div className="bg-gray-100 min-h-screen space-y-6">
+    <div className="min-h-screen space-y-6">
       {/* Top Stats Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <StatsCard

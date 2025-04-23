@@ -1,13 +1,11 @@
-'use client';
-
-import React, { useState } from 'react';
+import { useState } from "react";
 
 export default function AddStudentPage() {
     const allStudents = Array.from({ length: 50 }, (_, i) => ({
         firstName: "Olabangi",
         lastName: "Alade",
         email: "Alade@uni.lag.ng",
-        year: 2026,
+        year: 2025,
     }));
 
     const [students, setStudents] = useState(allStudents.slice(0, 10));
@@ -34,7 +32,7 @@ export default function AddStudentPage() {
     };
 
     return (
-        <div>
+        <div className="">
             {/* Filter Section */}
             <div className="flex justify-between items-center mb-4">
                 <div className="flex space-x-6 bg-white p-6 rounded-lg">
@@ -60,17 +58,17 @@ export default function AddStudentPage() {
                     className="bg-[#BB5D06] text-white px-4 py-2 rounded"
                     onClick={() => setShowModal(true)}
                 >
-                    + Add Students
+                   + Manually Register Student
                 </button>
             </div>
 
             {/* Student Table */}
             <div className="bg-white p-6 rounded-lg">
-                <h2 className="text-lg font-semibold mb-4">All Students</h2>
+                <h2 className="text-lg font-semibold mb-4">Manually Register Student</h2>
                 <div className="overflow-x-auto">
                     <table className="w-full border-collapse">
                         <thead>
-                            <tr className="bg-[#F1F4F9] text-left">
+                            <tr className="bg-[#F1F4F9] text-left rounded-full">
                                 <th className="px-4 py-4">First Name</th>
                                 <th className="px-4 py-4">Last Name</th>
                                 <th className="px-4 py-4">Email</th>
@@ -113,17 +111,29 @@ export default function AddStudentPage() {
                 </button>
             </div>
 
-            {/* Modal */}
+            {/* Manually Add Student Modal */}
             {showModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white p-6 rounded w-[90%] max-w-md">
-                        <div className="flex justify-between items-center mb-4">
+                <div className="fixed inset-0 flex items-center justify-center bg-opacity-50">
+                    <div className="bg-white p-6 rounded w-[250]">
+                        <div className="flex justify-between mb-4">
                             <h2 className="text-lg font-semibold">Manually Add Student</h2>
                             <button className="bg-[#BB5D06] text-white px-3 py-2 rounded">Bulk CSV Upload</button>
                         </div>
-                        <input type="text" placeholder="First Name" className="border px-3 py-4 border-gray-300 w-full mb-4 rounded-md outline-none" />
-                        <input type="text" placeholder="Last Name" className="border px-3 py-4 border-gray-300 w-full mb-4 rounded-md outline-none" />
-                        <input type="email" placeholder="User school email" className="border px-3 py-4 border-gray-300 w-full mb-4 rounded-md outline-none" />
+                        <input
+                            type="text"
+                            placeholder="First Name"
+                            className="border px-3 py-4 border-gray-300 w-full mb-4 rounded-md outline-none"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Last Name"
+                            className="border px-3 py-4 border-gray-300 w-full mb-4 rounded-md outline-none"
+                        />
+                        <input
+                            type="email"
+                            placeholder="User school email"
+                            className="border px-3 py-4 border-gray-300 w-full mb-4 rounded-md outline-none"
+                        />
                         <select className="border px-3 py-4 border-gray-300 w-full mb-4 rounded-md outline-none">
                             <option>Year of Graduation</option>
                             <option>2025</option>

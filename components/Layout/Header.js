@@ -22,7 +22,7 @@ export default function Navbar({ toggleSidebar }) {
     '/clients/manually-register': 'Manually Register student',
   };
 
-  const currentPage = pageTitles[currentPath] || 'Dashboard';
+  const currentPage = pageTitles[currentPath] || 'Client Dashboard';
 
   return (
     <nav className="bg-white px-8 py-4 flex items-center justify-between relative border-b">
