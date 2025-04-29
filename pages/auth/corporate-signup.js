@@ -15,42 +15,16 @@ export default function RegisterPage() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [showPromoInput, setShowPromoInput] = useState(false);
-  const [languages, setLanguages] = useState(
-    [
-      {
-        id: "L0E1B2C3-D4E5-M6G7-X8Y9-J0K1L2MMN4O5",
-        name: "luxemborg"
-      },
-      {
-        id: "L0E1D2C3-D4E5-M6G7-X8Y9-J0K5L2MM24O5",
-        name: "NETHERLAND"
-      },
-      {
-        id: "L0E1Q2C3-D4E5-M6G7-X8Y9-J0K3L4MMM4O5",
-        name: "danish"
-      }
-    ]
-  );
-  const [languageOptions, setLanguageOptions] = useState(
-    [
-      {
-        value: "L0E1B2C3-D4E5-M6G7-X8Y9-J0K1L2MMN4O5",
-        label: "luxemborg"
-      },
-      {
-        value: "L0E1D2C3-D4E5-M6G7-X8Y9-J0K5L2MM24O5",
-        label: "NETHERLAND"
-      },
-      {
-        value: "L0E1Q2C3-D4E5-M6G7-X8Y9-J0K3L4MMM4O5",
-        label: "danish"
-      }
-    ]
-  );
-  const [subscriptionPackages, setPackages] = useState([]);
+  const { ethnicsList } = useContext(EthnicContext);
 
-  const { ethnicsList, loggedInEthnicsList } = useContext(EthnicContext);
+
+  const [languages, setLanguages] = useState([]);
+
+  const [languageOptions, setLanguageOptions] = useState([]);
+
+  const [subscriptionPackages, setPackages] = useState([]);
 
   const nextStep = () => setStep(2);
   const prevStep = () => setStep(1);
@@ -74,10 +48,13 @@ export default function RegisterPage() {
   });
 
   const adminStep2Schema = Yup.object().shape({
-    password: Yup.string().required('Password is required').min(8, 'Password must be at least 8 characters'),
+    password: Yup.string().required('Password is required').min(8, 'Password must be at least 8 characters').trim(),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref('password'), null], 'Passwords must match')
-      .required('Confirm password is required'),
+      .required('Confirm password is required')
+      .test('passwords-match', 'Passwords must match', function (value) {
+        return this.parent.password === value;
+      }),
     subscriptionPackage: Yup.string().required('Subscription is required'),
     preferredEthnicId: Yup.string().required('Preferred language is required'),
     ethnicIds: Yup.array().min(2, 'Select at least 2 additional languages').required('Additional languages are required'),
@@ -153,13 +130,17 @@ export default function RegisterPage() {
         setLoading(true);
         CorporateSignUp(registrationData)
           .then((res) => {
-            if (res.status === 201) {
+            if (res.status === 200) {
               // setPaymentBannerOpen(true);
 
               // setRegistrationSuccessModal(true);
 
               // router.push(`/auth/verify-email`);
+              toast.success('Account created successfully', {
+                position: toast.POSITION.TOP_CENTER,
+              });
               router.push(`/auth/login`);
+
               setLoading(false);
             }
             if (res.status === 500) {
@@ -235,7 +216,7 @@ export default function RegisterPage() {
 
   // Auto-change text every 4 seconds
   useEffect(() => {
-    // getLanguagesData();
+    getLanguagesData();
     getPackages();
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % texts.length);
@@ -274,6 +255,8 @@ export default function RegisterPage() {
       studentFormik.resetForm();
     }
   };
+
+
 
   return (
     <div className="flex w-full">
@@ -457,7 +440,7 @@ export default function RegisterPage() {
                     <label className="block text-base font-light text-[#0A0A0A] mb-3">Confirm Password</label>
                     <div className="relative">
                       <input
-                        type={passwordVisible ? 'text' : 'password'}
+                        type={confirmPasswordVisible ? 'text' : 'password'}
                         name="confirmPassword"
                         className="w-full h-14 px-6 border border-gray-300 rounded-md outline-none placeholder:text-[#A2A3A9] font-light text-sm mb-3"
                         placeholder='Enter your confirm password'
@@ -467,9 +450,9 @@ export default function RegisterPage() {
                       />
                       <span
                         className="absolute right-3 top-5 cursor-pointer text-[#A2A3A9]"
-                        onClick={() => setPasswordVisible(!passwordVisible)}
+                        onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
                       >
-                        {passwordVisible ? <EyeOff /> : <Eye />}
+                        {confirmPasswordVisible ? <EyeOff /> : <Eye />}
                       </span>
                     </div>
                     {adminFormik.touched.confirmPassword && adminFormik.errors.confirmPassword ? (

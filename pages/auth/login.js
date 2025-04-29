@@ -14,8 +14,6 @@ export default function LoginPage() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const {login} = useContext(AuthContext);
-
   const router = useRouter();
 
   const togglePasswordVisibility = () => setPasswordVisible(!passwordVisible);
@@ -54,7 +52,7 @@ export default function LoginPage() {
       setLoading(true);
 
       CorporateLogin(loginPayload).then((res) => {
-        login(null, res.data.tokens.access);
+       // login(null, res.data.tokens.access);
         toast.success('Logged in successfully', {
           position: toast.POSITION.TOP_CENTER,
         });
