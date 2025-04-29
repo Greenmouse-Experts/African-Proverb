@@ -32,11 +32,14 @@ const ProtectedPages = ({ children }) => {
     "/privacy_policy",
     "/payment_success",
     "/404",
-    // Dashboard
-    "/dashboard",
-    "/dashboard/EmployeePage",
-    "/dashboard/NotificationPage",
-    "/dashboard/Proverb",
+    // clients Dashboard
+    "/clients",
+    "/clients/add_student",
+    "/clients/manually_register",
+    "/clients/subscription",
+    "/clients/NotificationPage",
+    "/clients/analytics",
+    
   ];
   
 
