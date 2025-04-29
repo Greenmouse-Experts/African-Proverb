@@ -3,6 +3,7 @@ import StudentEngagementReport from "./StudentEngagementReport";
 import LoginFrequencyGraph from "./LoginFrequencyGraph";
 import BarChart from "./BarChart";
 import ProgressChart from "./ProgressChart";
+import LanguagePreferencesChart from "./PreferencesChart";
 
 export default function AnalyticsPage() {
     const [selectedPeriod] = useState("This Week");
@@ -36,6 +37,11 @@ export default function AnalyticsPage() {
                         data={[25, 45, 35, 55, 70, 50]}
                         link="/quiz-participation"
                     />
+                </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="md:col-span-2">
+                    <LanguagePreferencesChart />
                 </div>
             </div>
         </div>

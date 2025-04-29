@@ -4,6 +4,7 @@ const allBillingData = Array.from({ length: 50 }, (_, i) => ({
     invoice: `5 Languages, paid, 01-07-2023 - 05-02-2024`,
     paymentMethod: "Paypal",
 }));
+
 export default function BillingHistoryTable({ filters }) {
     const [currentPage, setCurrentPage] = useState(0);
     const [billingData, setBillingData] = useState(allBillingData.slice(0, 10));
@@ -32,7 +33,6 @@ export default function BillingHistoryTable({ filters }) {
             setCurrentPage(prevPage);
         }
     };
-
     return (
         <>
             <div className="bg-white p-6 rounded-lg">
