@@ -54,7 +54,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
           <SidebarItem href="/clients/subscription" icon={<MdOutlineSubscriptions />} text="Subscription & Billing" active={isActive('/clients/subscription')} />
           <SidebarItem href="/clients/analytics" icon={<MdOutlineAnalytics />} text="Reports & Analytics" active={isActive('/clients/analytics')} />
-          <SidebarItem href="/notifications" icon={<MdOutlineNotifications />} text="Notifications & Messaging" active={isActive('/notifications')} />
+          <SidebarItem href="/clients/notifications" icon={<MdOutlineNotifications />} text="Notifications & Messaging" active={isActive('/clients/notifications')} />
 
           <DropdownItem
             title="Customization & Settings"
@@ -62,8 +62,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             isOpen={openDropdown === 'settings'}
             toggle={() => toggleDropdown('settings')}
             items={[
-              { href: '/corporate-info', text: 'Corporate Information' },
-              { href: '/corporate-list', text: 'Corporate List' },
+              { href: '/clients/corporate-info', text: 'Corporate Information' },
+              { href: '/clients/corporate-list', text: 'Corporate List' },
             ]}
             router={router}
           />

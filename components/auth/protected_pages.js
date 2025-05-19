@@ -37,8 +37,10 @@ const ProtectedPages = ({ children }) => {
     "/clients/add_student",
     "/clients/manually_register",
     "/clients/subscription",
-    "/clients/NotificationPage",
+    // "/clients/NotificationPage",
     "/clients/analytics",
+    "/clients/notifications",
+    '/clients/corporate-info',
   ];
   
 
