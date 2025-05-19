@@ -39,7 +39,6 @@ const ProtectedPages = ({ children }) => {
     "/clients/subscription",
     "/clients/NotificationPage",
     "/clients/analytics",
-    
   ];
   
 

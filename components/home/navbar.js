@@ -90,8 +90,16 @@ const Navbar = ({ openSidebar, Logo, linksColor = "dark" }) => {
           >
             Login
           </Link>
+          <div
+            className="flex items-center justify-between text-white text-sm bg-[#BB5D06] font-bold cursor-pointer p-1 px-4 rounded-lg"
+          >
+            <Link href={"/auth/cover"}>
+              <div>Register</div>
+            </Link>
+
+          </div>
           {/* Register dropdown injected here */}
-          <RegisterDropdown />
+          {/* <RegisterDropdown /> */}
 
         </div>
       )}
