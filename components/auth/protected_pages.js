@@ -41,6 +41,10 @@ const ProtectedPages = ({ children }) => {
     "/clients/analytics",
     "/clients/notifications",
     '/clients/corporate-info',
+
+    // Admin Dashboard
+    "/admin",
+    "/admin/metrics",
   ];
   
 

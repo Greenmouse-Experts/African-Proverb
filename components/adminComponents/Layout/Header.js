@@ -22,10 +22,10 @@ export default function Navbar({ toggleSidebar }) {
     '/clients/manually-register': 'Manually Register student',
   };
 
-  const currentPage = pageTitles[currentPath] || 'Client Dashboard';
+  const currentPage = pageTitles[currentPath] || 'Admin Dashboard';
 
   return (
-    <nav className="bg-white px-8 py-4 flex items-center justify-between relative border-b">
+    <nav className="bg-white px-8 py-4 flex items-center justify-between relative" style={{ fontFamily: '"Montserrat", sans-serif', fontOpticalSizing: 'auto' }}>
       {/* Sidebar Toggle Button (Only on Mobile) */}
       <button className="lg:hidden p-2 text-gray-600" onClick={toggleSidebar}>
         <Menu size={24} />
