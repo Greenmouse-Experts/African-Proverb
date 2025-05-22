@@ -4,19 +4,152 @@ import React, { useState } from 'react';
 
 const FactQuestions = () => {
     const [questions, setQuestions] = useState([
-        { id: 1, name: 'Hamzat Muna', question: 'What is the capital of France?', category: 'Geography', language: 'English', dateAdded: '22nd May, 2025' },
-        { id: 2, name: 'Zainab Bello', question: 'Who invented the telephone?', category: 'History', language: 'English', dateAdded: '22nd May, 2025' },
-        { id: 3, name: 'Amina Yusuf', question: 'What is 2 + 2?', category: 'Math', language: 'Spanish', dateAdded: '22nd May, 2025' },
-        { id: 4, name: 'Chinedu Nwosu', question: 'What is the tallest mountain in the world?', category: 'Geography', language: 'French', dateAdded: '22nd May, 2025' },
-        { id: 5, name: 'Kelvin Johnson', question: 'Who wrote Hamlet?', category: 'Literature', language: 'English', dateAdded: '22nd May, 2025' },
-        { id: 6, name: 'Blessing Uche', question: 'What is the speed of light in vacuum?', category: 'Science', language: 'English', dateAdded: '22nd May, 2025' },
-        { id: 7, name: 'David Mark', question: 'What is the boiling point of water?', category: 'Science', language: 'German', dateAdded: '22nd May, 2025' },
-        { id: 8, name: 'Segun Alabi', question: 'Who painted the Mona Lisa?', category: 'Art', language: 'Italian', dateAdded: '22nd May, 2025' },
-        { id: 9, name: 'Adaobi Okoro', question: 'What is the currency of Japan?', category: 'Economics', language: 'Japanese', dateAdded: '22nd May, 2025' },
-        { id: 10, name: 'Ruqayyah Musa', question: 'What is the Pythagorean theorem?', category: 'Math', language: 'English', dateAdded: '22nd May, 2025' },
-        { id: 11, name: 'Tunde Adebayo', question: 'When did World War II end?', category: 'History', language: 'English', dateAdded: '22nd May, 2025' },
-        { id: 12, name: 'Oluchi Daniels', question: 'What is photosynthesis?', category: 'Biology', language: 'English', dateAdded: '22nd May, 2025' },
-    ]);
+        {
+          id: 1,
+          name: 'Erica Ramirez',
+          question: 'Improve quality citizen people measure finish yeah?',
+          category: 'Science',
+          language: 'Spanish',
+          dateAdded: '22nd May, 2025',
+          status: 'ACTIVE',
+          engagementLevel: 'All',
+          subscriptionType: 'Premium',
+          selectedUsers: 'Engaged'
+        },
+        {
+          id: 2,
+          name: 'Kyle Nash',
+          question: 'Weight operation stay understand indeed eight car same?',
+          category: 'Literature',
+          language: 'English',
+          dateAdded: '22nd May, 2025',
+          status: 'ACTIVE',
+          engagementLevel: 'All',
+          subscriptionType: 'Premium',
+          selectedUsers: 'All'
+        },
+        {
+          id: 3,
+          name: 'Anita Smith',
+          question: 'Civil difference direction increase?',
+          category: 'Science',
+          language: 'French',
+          dateAdded: '22nd May, 2025',
+          status: 'ACTIVE',
+          engagementLevel: 'High',
+          subscriptionType: 'Premium',
+          selectedUsers: 'New Users'
+        },
+        {
+          id: 4,
+          name: 'Frank White',
+          question: 'Project performance business become?',
+          category: 'Literature',
+          language: 'Spanish',
+          dateAdded: '22nd May, 2025',
+          status: 'INACTIVE',
+          engagementLevel: 'Low',
+          subscriptionType: 'Free',
+          selectedUsers: 'Inactive'
+        },
+        {
+          id: 5,
+          name: 'Jennifer Beck',
+          question: 'Hard your return project easy?',
+          category: 'Geography',
+          language: 'French',
+          dateAdded: '22nd May, 2025',
+          status: 'INACTIVE',
+          engagementLevel: 'Low',
+          subscriptionType: 'Pro',
+          selectedUsers: 'Inactive'
+        },
+        {
+          id: 6,
+          name: 'Samantha Brown',
+          question: 'Ground notice paper meet?',
+          category: 'History',
+          language: 'English',
+          dateAdded: '22nd May, 2025',
+          status: 'INACTIVE',
+          engagementLevel: 'Medium',
+          subscriptionType: 'Free',
+          selectedUsers: 'Engaged'
+        },
+        {
+          id: 7,
+          name: 'Angela Jackson',
+          question: 'Authority free PM woman?',
+          category: 'Geography',
+          language: 'English',
+          dateAdded: '22nd May, 2025',
+          status: 'INACTIVE',
+          engagementLevel: 'High',
+          subscriptionType: 'Free',
+          selectedUsers: 'Inactive'
+        },
+        {
+          id: 8,
+          name: 'Aaron Hardy',
+          question: 'Answer just heavy then?',
+          category: 'History',
+          language: 'French',
+          dateAdded: '22nd May, 2025',
+          status: 'ACTIVE',
+          engagementLevel: 'Low',
+          subscriptionType: 'Premium',
+          selectedUsers: 'All'
+        },
+        {
+          id: 9,
+          name: 'Matthew Cohen',
+          question: 'Movement image town network section create?',
+          category: 'Science',
+          language: 'French',
+          dateAdded: '22nd May, 2025',
+          status: 'ACTIVE',
+          engagementLevel: 'All',
+          subscriptionType: 'Free',
+          selectedUsers: 'Inactive'
+        },
+        {
+          id: 10,
+          name: 'Kimberly Smith',
+          question: 'Last order significant face mind friend?',
+          category: 'Science',
+          language: 'French',
+          dateAdded: '22nd May, 2025',
+          status: 'ACTIVE',
+          engagementLevel: 'Low',
+          subscriptionType: 'Premium',
+          selectedUsers: 'Inactive'
+        },
+        {
+          id: 11,
+          name: 'Billy James',
+          question: 'Small economic minute write?',
+          category: 'Math',
+          language: 'Spanish',
+          dateAdded: '22nd May, 2025',
+          status: 'INACTIVE',
+          engagementLevel: 'Low',
+          subscriptionType: 'All',
+          selectedUsers: 'Engaged'
+        },
+        {
+          id: 12,
+          name: 'David Choi',
+          question: 'Conference economy free camera available?',
+          category: 'Literature',
+          language: 'English',
+          dateAdded: '22nd May, 2025',
+          status: 'ACTIVE',
+          engagementLevel: 'Low',
+          subscriptionType: 'All',
+          selectedUsers: 'Free Users'
+        }
+      ]);
+      
 
     const [searchQuery, setSearchQuery] = useState('');
     const [filterGeneral, setFilterGeneral] = useState('GENERAL');
@@ -24,6 +157,9 @@ const FactQuestions = () => {
     const [filterLanguage, setFilterLanguage] = useState('');
     const [openDropdownId, setOpenDropdownId] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+    const [selectedQuestion, setSelectedQuestion] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
     const itemsPerPage = 10;
 
     const filteredQuestions = questions.filter((question) => {
@@ -53,7 +189,17 @@ const FactQuestions = () => {
     };
 
     const handleAction = (action, id) => {
-        console.log(`${action} for question ID:`, id);
+        const question = questions.find((q) => q.id === id);
+        if (action === 'View') {
+            setSelectedQuestion(question);
+            setIsViewModalOpen(true);
+        } else if (action === 'Edit') {
+            setSelectedQuestion({ ...question });
+            setIsEditing(true);
+            setIsViewModalOpen(true);
+        } else if (action === 'Delete') {
+            console.log('Delete for question ID:', id);
+        }
         setOpenDropdownId(null);
     };
 
@@ -84,6 +230,16 @@ const FactQuestions = () => {
 
     const handleNextPage = () => {
         if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    };
+
+    const handleSave = () => {
+        setQuestions(questions.map((q) => (q.id === selectedQuestion.id ? selectedQuestion : q)));
+        setIsEditing(false);
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setSelectedQuestion((prev) => ({ ...prev, [name]: value }));
     };
 
     return (
@@ -261,6 +417,98 @@ const FactQuestions = () => {
                         </button>
                     </div>
                 </div>
+                {/* View/Edit Modal */}
+                {isViewModalOpen && selectedQuestion && (
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                        <div className="bg-white rounded-lg p-6 w-full max-w-xl relative">
+                            <button
+                                onClick={() => {
+                                    setIsViewModalOpen(false);
+                                    setIsEditing(false);
+                                    setSelectedQuestion(null);
+                                }}
+                                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                            <div className="flex justify-between items-center mb-4 mt-8">
+                                <div className="flex items-center">
+                                    <span className="text-sm text-gray-600 mr-2">Created At: <strong>Thu Jan 04 2025</strong></span>
+                                    <button className="px-6 py-2 bg-blue-200 text-white rounded text-xs">Active: {selectedQuestion.status}</button>
+                                </div>
+                                <div>
+                                    <button
+                                        onClick={() => setIsEditing(true)}
+                                        className="px-6 py-2 bg-[#BB5D06] text-white rounded-md text-sm hover:bg-orange-600"
+                                    >
+                                        Edit
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="space-y-4">
+                                <p className="text-sm text-gray-600">Question: <strong>{selectedQuestion.question}</strong></p>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-3">Language preference</label>
+                                    <select
+                                        name="language"
+                                        value={selectedQuestion.language}
+                                        onChange={handleChange}
+                                        disabled={!isEditing}
+                                        className="mt-1 p-4 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    >
+                                        <option>Select Language</option>
+                                        <option>English</option>
+                                        <option>Spanish</option>
+                                        <option>French</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-3">Engagement level</label>
+                                    <input
+                                        type="text"
+                                        name="engagementLevel"
+                                        value={selectedQuestion.engagementLevel}
+                                        onChange={handleChange}
+                                        disabled={!isEditing}
+                                        className="mt-1 p-4 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-3">Subscription type</label>
+                                    <input
+                                        type="text"
+                                        name="subscriptionType"
+                                        value={selectedQuestion.subscriptionType}
+                                        onChange={handleChange}
+                                        disabled={!isEditing}
+                                        className="mt-1 p-4 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-3">Select Users</label>
+                                    <input
+                                        type="text"
+                                        name="selectedUsers"
+                                        value={selectedQuestion.selectedUsers}
+                                        onChange={handleChange}
+                                        disabled={!isEditing}
+                                        className="mt-1 p-4 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                </div>
+                            </div>
+                            {isEditing && (
+                                <div className="mt-4 flex justify-end">
+                                    <button
+                                        onClick={handleSave}
+                                        className="px-4 py-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    >
+                                        Save
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
             </div>
         </>
 
