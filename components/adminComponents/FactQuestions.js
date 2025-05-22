@@ -23,6 +23,8 @@ const FactQuestions = () => {
     const [filterCategory, setFilterCategory] = useState('');
     const [filterLanguage, setFilterLanguage] = useState('');
     const [openDropdownId, setOpenDropdownId] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
 
     const filteredQuestions = questions.filter((question) => {
         const matchesSearch = question.question.toLowerCase().includes(searchQuery.toLowerCase());
@@ -32,13 +34,17 @@ const FactQuestions = () => {
         return matchesSearch && matchesGeneral && matchesCategory && matchesLanguage;
     });
 
+    const totalPages = Math.ceil(filteredQuestions.length / itemsPerPage);
+    const paginatedQuestions = filteredQuestions.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
     const handleFilter = () => {
-        // Filtering is already applied dynamically, but this can trigger additional logic (e.g., API calls) if needed
         console.log('Filter applied:', { filterGeneral, filterCategory, filterLanguage });
     };
 
     const handleSearch = () => {
-        // Search is already applied dynamically, but this can trigger additional logic if needed
         console.log('Search for:', searchQuery);
     };
 
@@ -51,148 +57,213 @@ const FactQuestions = () => {
         setOpenDropdownId(null);
     };
 
+    const handleShare = () => {
+        const shareUrl = window.location.href;
+        const shareText = 'Check out these fact questions! ' + shareUrl;
+
+        if (navigator.share) {
+            navigator.share({
+                title: 'Fact Questions',
+                text: shareText,
+                url: shareUrl,
+            }).catch((error) => console.log('Error sharing:', error));
+        } else {
+            // Fallback for browsers without Web Share API
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+            const linkedinUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=Fact Questions&summary=${encodeURIComponent(shareText)}`;
+            console.log('Share manually:', { twitterUrl, facebookUrl, linkedinUrl });
+            // You can open these URLs in new tabs or display them to the user
+            alert(`Share via:\nTwitter: ${twitterUrl}\nFacebook: ${facebookUrl}\nLinkedIn: ${linkedinUrl}`);
+        }
+    };
+
+    const handlePreviousPage = () => {
+        if (currentPage > 1) setCurrentPage(currentPage - 1);
+    };
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    };
+
     return (
-        <div className="p-6 bg-white rounded-lg">
-            {/* Filter Section */}
-            <div className="bg-white rounded-lg mb-6 flex justify-between items-center">
-                <div className="flex items-center gap-4">
-                    <div>
-                        <label className="block text-lg font-medium text-black mb-5">Filter Question</label>
-                        <div className="flex gap-2">
-                            <select
-                                value={filterGeneral}
-                                onChange={(e) => setFilterGeneral(e.target.value)}
-                                className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
-                            >
-                                <option>GENERAL</option>
-                                <option>Geography</option>
-                                <option>History</option>
-                                <option>Math</option>
-                                <option>Literature</option>
-                                <option>Science</option>
-                            </select>
-                            <select
-                                value={filterCategory}
-                                onChange={(e) => setFilterCategory(e.target.value)}
-                                className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
-                            >
-                                <option value="">By Category</option>
-                                <option>Geography</option>
-                                <option>History</option>
-                                <option>Math</option>
-                                <option>Literature</option>
-                                <option>Science</option>
-                            </select>
-                            <select
-                                value={filterLanguage}
-                                onChange={(e) => setFilterLanguage(e.target.value)}
-                                className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
-                            >
-                                <option value="">By Language</option>
-                                <option>English</option>
-                                <option>Spanish</option>
-                                <option>French</option>
-                            </select>
-                            <button
-                                onClick={handleFilter}
-                                className="px-8 py-2 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none"
-                            >
-                                Filter Questions
-                            </button>
+        <>
+            <div className="p-6 bg-white rounded-lg mb-6">
+                {/* Filter Section */}
+                <div className="bg-white rounded-lg flex justify-between items-center">
+                    <div className="flex items-center gap-4">
+                        <div>
+                            <label className="block text-lg font-medium text-black mb-4">Filter Question</label>
+                            <div className="flex gap-2">
+                                <select
+                                    value={filterGeneral}
+                                    onChange={(e) => setFilterGeneral(e.target.value)}
+                                    className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
+                                >
+                                    <option>GENERAL</option>
+                                    <option>Geography</option>
+                                    <option>History</option>
+                                    <option>Math</option>
+                                    <option>Literature</option>
+                                    <option>Science</option>
+                                </select>
+                                <select
+                                    value={filterCategory}
+                                    onChange={(e) => setFilterCategory(e.target.value)}
+                                    className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
+                                >
+                                    <option value="">By Category</option>
+                                    <option>Geography</option>
+                                    <option>History</option>
+                                    <option>Math</option>
+                                    <option>Literature</option>
+                                    <option>Science</option>
+                                </select>
+                                <select
+                                    value={filterLanguage}
+                                    onChange={(e) => setFilterLanguage(e.target.value)}
+                                    className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
+                                >
+                                    <option value="">By Language</option>
+                                    <option>English</option>
+                                    <option>Spanish</option>
+                                    <option>French</option>
+                                </select>
+                                <button
+                                    onClick={handleFilter}
+                                    className="px-6 py-3 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none"
+                                >
+                                    Filter Questions
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="flex items-center gap-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Search Question</label>
-                    <input
-                        type="text"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
-                        placeholder="Search"
-                    />
-                    <button
-                        onClick={handleSearch}
-                        className="px-6 py-3 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none"
-                    >
-                        Search
-                    </button>
+                    <div className="flex items-center gap-2">
+                        <label className="block text-lg font-medium text-black mb-4">Search Question</label>
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
+                            placeholder="Search"
+                        />
+                        <button
+                            onClick={handleSearch}
+                            className="px-6 py-3 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none"
+                        >
+                            Search
+                        </button>
+                    </div>
                 </div>
             </div>
-
-            {/* Table */}
-            <div className="bg-white rounded-lg p-4 border border-gray-200">
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left">
-                        <thead>
-                            <tr className="bg-gray-100 border-b border-gray-200">
-                                <th className="p-4 text-sm font-medium text-gray-700">Name</th>
-                                <th className="p-4 text-sm font-medium text-gray-700">Question</th>
-                                <th className="p-4 text-sm font-medium text-gray-700">Category</th>
-                                <th className="p-4 text-sm font-medium text-gray-700">Language</th>
-                                <th className="p-4 text-sm font-medium text-gray-700">Date Added</th>
-                                <th className="p-4 text-sm font-medium text-gray-700">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredQuestions.map((question) => (
-                                <tr key={question.id} className="border-b border-gray-200 hover:bg-gray-50">
-                                    <td className="p-4 text-sm text-gray-600">{question.name}</td>
-                                    <td className="p-4 text-sm text-gray-600">{question.question}</td>
-                                    <td className="p-4 text-sm text-gray-600">{question.category}</td>
-                                    <td className="p-4 text-sm text-gray-600">{question.language}</td>
-                                    <td className="p-4 text-sm text-gray-600">{question.dateAdded}</td>
-                                    <td className="p-4 text-sm text-gray-600 relative">
-                                        <button
-                                            onClick={() => toggleDropdown(question.id)}
-                                            className="text-blue-500 hover:text-blue-700"
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="16"
-                                                height="16"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            >
-                                                <circle cx="12" cy="12" r="1" />
-                                                <circle cx="12" cy="5" r="1" />
-                                                <circle cx="12" cy="19" r="1" />
-                                            </svg>
-                                        </button>
-                                        {openDropdownId === question.id && (
-                                            <div className="absolute right-4 mt-2 w-32 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                                                <button
-                                                    onClick={() => handleAction('View', question.id)}
-                                                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                                >
-                                                    View
-                                                </button>
-                                                <button
-                                                    onClick={() => handleAction('Edit', question.id)}
-                                                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                                >
-                                                    Edit
-                                                </button>
-                                                <button
-                                                    onClick={() => handleAction('Delete', question.id)}
-                                                    className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
-                                                >
-                                                    Delete
-                                                </button>
-                                            </div>
-                                        )}
-                                    </td>
+            <div className="p-6 bg-white rounded-lg">
+                {/* Table */}
+                <div className="bg-white rounded-lg">
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left">
+                            <thead>
+                                <tr className="bg-gray-100 border-b border-gray-200">
+                                    <th className="p-6 text-sm font-medium text-gray-700">
+                                        <input type="checkbox" className="mr-8" />
+                                        Question
+                                    </th>
+                                    <th className="p-6 text-sm font-medium text-gray-700">Question Type</th>
+                                    <th className="p-6 text-sm font-medium text-gray-700">Current Status</th>
+                                    <th className="p-6 text-sm font-medium text-gray-700">Created At</th>
+                                    <th className="p-6 text-sm font-medium text-gray-700">Actions</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {paginatedQuestions.map((question) => (
+                                    <tr key={question.id} className="border-b border-gray-200 hover:bg-gray-50">
+                                        <td className="p-6 text-sm text-gray-600">
+                                            <input type="checkbox" className="mr-8" />
+                                            {question.question}
+                                        </td>
+                                        <td className="p-6 text-sm text-gray-600">{question.category}</td>
+                                        <td className="p-6 text-sm text-gray-600">
+                                            <button className="px-2 py-1 bg-blue-200 text-white rounded text-xs">ACTIVE</button>
+                                        </td>
+                                        <td className="p-6 text-sm text-gray-600">{question.dateAdded}</td>
+                                        <td className="p-6 text-sm text-gray-600 relative">
+                                            <button
+                                                onClick={() => toggleDropdown(question.id)}
+                                                className="text-[#5DB6DC] hover:text-blue-700"
+                                            >
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="16"
+                                                    height="16"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="2"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                >
+                                                    <circle cx="12" cy="12" r="1" />
+                                                    <circle cx="12" cy="5" r="1" />
+                                                    <circle cx="12" cy="19" r="1" />
+                                                </svg>
+                                            </button>
+                                            {openDropdownId === question.id && (
+                                                <div className="absolute right-4 mt-2 w-32 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                                                    <button
+                                                        onClick={() => handleAction('View', question.id)}
+                                                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                    >
+                                                        View
+                                                    </button>
+                                                    <button
+                                                        onClick={() => handleAction('Edit', question.id)}
+                                                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                    >
+                                                        Edit
+                                                    </button>
+                                                    <button
+                                                        onClick={() => handleAction('Delete', question.id)}
+                                                        className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Share and Pagination */}
+                <div className="mt-4 flex justify-between items-center bg-gray-200 p-4 rounded-lg">
+                    <button
+                        onClick={handleShare}
+                        className="px-4 py-2 bg-blue-700 text-white rounded-md text-sm flex items-center hover:bg-blue-800 outline-none"
+                    >
+                        Share <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2"><polyline points="18 15 12 21 6 15"></polyline><polyline points="6 9 12 3 18 9"></polyline></svg>
+                    </button>
+                    <div className="flex gap-2">
+                        <button
+                            onClick={handlePreviousPage}
+                            className="px-4 py-2 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none disabled:opacity-50"
+                            disabled={currentPage === 1}
+                        >
+                            Fetch previous 10
+                        </button>
+                        <button
+                            onClick={handleNextPage}
+                            className="px-4 py-2 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none disabled:opacity-50"
+                            disabled={currentPage === totalPages}
+                        >
+                            Fetch Next 10
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
+
     );
 };
 
