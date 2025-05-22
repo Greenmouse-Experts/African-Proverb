@@ -150,18 +150,17 @@ const FactQuestions = () => {
         }
     ]);
 
-
     const [searchQuery, setSearchQuery] = useState('');
-  const [filterGeneral, setFilterGeneral] = useState('GENERAL');
-  const [filterCategory, setFilterCategory] = useState('');
-  const [filterLanguage, setFilterLanguage] = useState('');
-  const [openDropdownId, setOpenDropdownId] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [selectedQuestion, setSelectedQuestion] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
-  const itemsPerPage = 10;
+    const [filterGeneral, setFilterGeneral] = useState('GENERAL');
+    const [filterCategory, setFilterCategory] = useState('');
+    const [filterLanguage, setFilterLanguage] = useState('');
+    const [openDropdownId, setOpenDropdownId] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+    const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+    const [selectedQuestion, setSelectedQuestion] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
+    const itemsPerPage = 10;
 
     const filteredQuestions = questions.filter((question) => {
         const matchesSearch = question.question.toLowerCase().includes(searchQuery.toLowerCase());
