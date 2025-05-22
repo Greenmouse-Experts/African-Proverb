@@ -46,6 +46,7 @@ const ProtectedPages = ({ children }) => {
     "/admin",
     "/admin/metrics",
     "/admin/subscriber",
+    "/admin/create-categories",
   ];
   
 

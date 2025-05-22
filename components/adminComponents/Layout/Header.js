@@ -17,9 +17,10 @@ export default function Navbar({ toggleSidebar }) {
   }, [router]);
 
   const pageTitles = {
-    '/clients': 'Dashboard',
-    '/clients/add-students': 'User Management',
-    '/clients/manually-register': 'Manually Register student',
+    '/admin': 'Admin Dashboard',
+    '/admin/metrics': 'User Engagement Metrics',
+    '/admin/subscriber': 'Subscribers',
+    '/admin/create-categories': 'User Management ',
   };
 
   const currentPage = pageTitles[currentPath] || 'Admin Dashboard';

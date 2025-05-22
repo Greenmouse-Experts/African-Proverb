@@ -38,7 +38,7 @@ const RecentSubscribers = () => {
 
   return (
     <div className="">
-      <div className="bg-white rounded-lg mt-6">
+      <div className="bg-white rounded-lg p-6 mt-6">
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900">Recent Subscribers</h2>
           <div className="flex gap-2">

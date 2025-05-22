@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -32,8 +32,13 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     setOpenDropdown(openDropdown === menu ? null : menu);
   };
 
-  const isActive = (path) => pathname.startsWith(path);
-
+  // Improved isActive function to handle exact and nested routes
+  const isActive = (path) => {
+    if (path === '/admin') {
+      return pathname === path; // Exact match for dashboard
+    }
+    return path !== '#' && pathname.startsWith(path);
+  };
 
   return (
     <div className="relative z-50">
@@ -56,39 +61,40 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
         {/* Menu */}
         <nav className="mt-6 flex-1 overflow-y-auto space-y-2 text-sm">
-          <SidebarItem href="/admin" text="Dashboard" icon={<MdDashboard />} active={isActive('/admin')} />
-          <SidebarItem href="/proverbs" text="Proverbs" icon={<MdQuiz />} active={isActive('/proverbs')} />
-          <SidebarItem href="/affiliated-language" text="AffiliatedLanguage" icon={<MdLanguage />} active={isActive('/affiliated-language')} />
-          <SidebarItem href="/fact-questions" text="Fact Questions" icon={<MdQuestionAnswer />} active={isActive('/fact-questions')} />
-          <SidebarItem href="/flags" text="Flags" icon={<MdFlag />} active={isActive('/flags')} />
-          <SidebarItem href="/ethnic-symbols" text="Ethnic Symbols" icon={<GiTribalMask />} active={isActive('/ethnic-symbols')} />
-          <SidebarItem href="/faqs" text="Faqs" icon={<BsFillQuestionSquareFill />} active={isActive('/faqs')} />
-          <SidebarItem href="/packages" text="Packages" icon={<FaBoxes />} active={isActive('/packages')} />
+          <SidebarItem href="/admin" text="Dashboard" icon={<MdDashboard />} isActive={isActive} />
+          <SidebarItem href="/admin/proverbs" text="Proverbs" icon={<MdQuiz />} isActive={isActive} />
+          <SidebarItem href="/admin/affiliated-language" text="AffiliatedLanguage" icon={<MdLanguage />} isActive={isActive} />
+          <SidebarItem href="/admin/fact-questions" text="Fact Questions" icon={<MdQuestionAnswer />} isActive={isActive} />
+          <SidebarItem href="/admin/flags" text="Flags" icon={<MdFlag />} isActive={isActive} />
+          <SidebarItem href="/admin/ethnic-symbols" text="Ethnic Symbols" icon={<GiTribalMask />} isActive={isActive} />
+          <SidebarItem href="/admin/faqs" text="Faqs" icon={<BsFillQuestionSquareFill />} isActive={isActive} />
+          <SidebarItem href="/admin/packages" text="Packages" icon={<FaBoxes />} isActive={isActive} />
 
           <DropdownItem
             title="User Management"
             icon={<HiOutlineUsers />}
-            isOpen={openDropdown === 'userManagement'}
+            isOpen={openDropdown === 'userManagement' || isActive('/admin/create-categories') || isActive('/admin/users')}
             toggle={() => toggleDropdown('userManagement')}
             items={[
               {
-                href: '/user-management/create-categories',
+                href: '/admin/create-categories',
                 text: 'Create Categories',
                 icon: <MdCategory />,
               },
-              { href: '/user-management/users', text: 'Users', icon: <MdPeopleAlt /> },
+              { href: '/admin/users', text: 'Users', icon: <MdPeopleAlt /> },
             ]}
-            activePath={pathname}
+            isActive={isActive}
+            pathname={pathname}
           />
 
-          <SidebarItem href="/push-notifications" text="Push Notifications" icon={<MdOutlineNotifications />} active={isActive('/push-notifications')} />
-          <SidebarItem href="/user-notifications" text="User Notifications" icon={<MdOutlineNotifications />} active={isActive('/user-notifications')} />
-          <SidebarItem href="/admin/subscriber" text="Subscriptions" icon={<MdOutlineSubscriptions />} active={isActive('/admin/subscriber')} />
+          <SidebarItem href="/admin/push-notifications" text="Push Notifications" icon={<MdOutlineNotifications />} isActive={isActive} />
+          <SidebarItem href="/admin/user-notifications" text="User Notifications" icon={<MdOutlineNotifications />} isActive={isActive} />
+          <SidebarItem href="/admin/subscriber" text="Subscriptions" icon={<MdOutlineSubscriptions />} isActive={isActive} />
 
           <DropdownItem
             title="Report"
             icon={<MdOutlineAnalytics />}
-            isOpen={openDropdown === 'report'}
+            isOpen={openDropdown === 'report' || isActive('/admin/metrics')}
             toggle={() => toggleDropdown('report')}
             items={[
               {
@@ -97,10 +103,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 icon: <RiCustomerService2Line />,
               },
             ]}
-            activePath={pathname}
+            isActive={isActive}
+            pathname={pathname}
           />
 
-          <SidebarItem href="/question-mapping" text="Question Mapping" icon={<MdQuiz />} active={isActive('/question-mapping')} />
+          <SidebarItem href="/admin/question-mapping" text="Question Mapping" icon={<MdQuiz />} isActive={isActive} />
         </nav>
       </div>
 
@@ -112,20 +119,27 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   );
 };
 
-const SidebarItem = ({ href, text, icon, active }) => (
-  <Link
-    href={href}
-    className={`flex items-center px-3 py-3 rounded-md transition-colors ${
-      active ? 'bg-black' : 'hover:bg-black'
-    }`}
-  >
-    {icon && <span className="mr-3 text-lg">{icon}</span>}
-    {text}
-  </Link>
-);
+const SidebarItem = ({ href, text, icon, isActive }) => {
+  const active = isActive(href);
+  return (
+    <Link
+      href={href}
+      className={`flex items-center px-3 py-3 rounded-md transition-colors ${
+        active ? 'bg-black' : 'hover:bg-black'
+      }`}
+    >
+      {icon && <span className="mr-3 text-lg">{icon}</span>}
+      {text}
+    </Link>
+  );
+};
 
-const DropdownItem = ({ title, icon, isOpen, toggle, items, activePath }) => {
-  const isAnyChildActive = items.some((item) => activePath === item.href);
+const DropdownItem = ({ title, icon, isOpen, toggle, items, isActive, pathname }) => {
+  // Check if any child item is active
+  const isAnyChildActive = items.some((item) => isActive(item.href));
+
+  // Set isOpen to true if a child is active, otherwise use the controlled state
+  const shouldBeOpen = isAnyChildActive || isOpen;
 
   return (
     <div className="space-y-1">
@@ -139,9 +153,9 @@ const DropdownItem = ({ title, icon, isOpen, toggle, items, activePath }) => {
           <span className="mr-3 text-lg">{icon}</span>
           {title}
         </div>
-        <span>{isOpen ? <IoIosArrowDown /> : <IoIosArrowForward />}</span>
+        <span>{shouldBeOpen ? <IoIosArrowDown /> : <IoIosArrowForward />}</span>
       </button>
-      {isOpen && (
+      {shouldBeOpen && (
         <div className="ml-6 space-y-1">
           {items.map((item) => (
             <SidebarItem
@@ -149,7 +163,7 @@ const DropdownItem = ({ title, icon, isOpen, toggle, items, activePath }) => {
               href={item.href}
               text={item.text}
               icon={item.icon}
-              active={activePath === item.href}
+              isActive={isActive}
             />
           ))}
         </div>
