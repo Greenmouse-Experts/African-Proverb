@@ -349,7 +349,7 @@ const FactQuestions = () => {
                                         </td>
                                         <td className="p-6 text-sm text-gray-600">{question.category}</td>
                                         <td className="p-6 text-sm text-gray-600">
-                                            <button className="px-2 py-1 bg-blue-200 text-white rounded text-xs">ACTIVE</button>
+                                            <button className="px-2 py-1 bg-blue-200 text-white rounded text-xs"></button>
                                         </td>
                                         <td className="p-6 text-sm text-gray-600">{question.dateAdded}</td>
                                         <td className="p-6 text-sm text-gray-600 relative">
