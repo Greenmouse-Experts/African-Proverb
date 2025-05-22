@@ -83,7 +83,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
           <SidebarItem href="/push-notifications" text="Push Notifications" icon={<MdOutlineNotifications />} active={isActive('/push-notifications')} />
           <SidebarItem href="/user-notifications" text="User Notifications" icon={<MdOutlineNotifications />} active={isActive('/user-notifications')} />
-          <SidebarItem href="/subscriptions" text="Subscriptions" icon={<MdOutlineSubscriptions />} active={isActive('/subscriptions')} />
+          <SidebarItem href="/admin/subscriber" text="Subscriptions" icon={<MdOutlineSubscriptions />} active={isActive('/admin/subscriber')} />
 
           <DropdownItem
             title="Report"

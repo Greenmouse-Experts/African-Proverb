@@ -40,11 +40,12 @@ const ProtectedPages = ({ children }) => {
     // "/clients/NotificationPage",
     "/clients/analytics",
     "/clients/notifications",
-    '/clients/corporate-info',
+    "/clients/corporate-info",
 
     // Admin Dashboard
     "/admin",
     "/admin/metrics",
+    "/admin/subscriber",
   ];
   
 
