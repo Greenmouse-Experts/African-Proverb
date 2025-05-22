@@ -81,7 +81,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 text: 'Create Categories',
                 icon: <MdCategory />,
               },
-              { href: '/admin/users', text: 'Users', icon: <MdPeopleAlt /> },
+              { href: '/admin/create-user', text: 'Users', icon: <MdPeopleAlt /> },
             ]}
             isActive={isActive}
             pathname={pathname}
