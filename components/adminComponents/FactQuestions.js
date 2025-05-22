@@ -5,162 +5,163 @@ import React, { useState } from 'react';
 const FactQuestions = () => {
     const [questions, setQuestions] = useState([
         {
-          id: 1,
-          name: 'Erica Ramirez',
-          question: 'Improve quality citizen people measure finish yeah?',
-          category: 'Science',
-          language: 'Spanish',
-          dateAdded: '22nd May, 2025',
-          status: 'ACTIVE',
-          engagementLevel: 'All',
-          subscriptionType: 'Premium',
-          selectedUsers: 'Engaged'
+            id: 1,
+            name: 'Erica Ramirez',
+            question: 'Improve quality citizen people measure finish yeah?',
+            category: 'Science',
+            language: 'Spanish',
+            dateAdded: '22nd May, 2025',
+            status: 'ACTIVE',
+            engagementLevel: 'All',
+            subscriptionType: 'Premium',
+            selectedUsers: 'Engaged'
         },
         {
-          id: 2,
-          name: 'Kyle Nash',
-          question: 'Weight operation stay understand indeed eight car same?',
-          category: 'Literature',
-          language: 'English',
-          dateAdded: '22nd May, 2025',
-          status: 'ACTIVE',
-          engagementLevel: 'All',
-          subscriptionType: 'Premium',
-          selectedUsers: 'All'
+            id: 2,
+            name: 'Kyle Nash',
+            question: 'Weight operation stay understand indeed eight car same?',
+            category: 'Literature',
+            language: 'English',
+            dateAdded: '22nd May, 2025',
+            status: 'ACTIVE',
+            engagementLevel: 'All',
+            subscriptionType: 'Premium',
+            selectedUsers: 'All'
         },
         {
-          id: 3,
-          name: 'Anita Smith',
-          question: 'Civil difference direction increase?',
-          category: 'Science',
-          language: 'French',
-          dateAdded: '22nd May, 2025',
-          status: 'ACTIVE',
-          engagementLevel: 'High',
-          subscriptionType: 'Premium',
-          selectedUsers: 'New Users'
+            id: 3,
+            name: 'Anita Smith',
+            question: 'Civil difference direction increase?',
+            category: 'Science',
+            language: 'French',
+            dateAdded: '22nd May, 2025',
+            status: 'ACTIVE',
+            engagementLevel: 'High',
+            subscriptionType: 'Premium',
+            selectedUsers: 'New Users'
         },
         {
-          id: 4,
-          name: 'Frank White',
-          question: 'Project performance business become?',
-          category: 'Literature',
-          language: 'Spanish',
-          dateAdded: '22nd May, 2025',
-          status: 'INACTIVE',
-          engagementLevel: 'Low',
-          subscriptionType: 'Free',
-          selectedUsers: 'Inactive'
+            id: 4,
+            name: 'Frank White',
+            question: 'Project performance business become?',
+            category: 'Literature',
+            language: 'Spanish',
+            dateAdded: '22nd May, 2025',
+            status: 'INACTIVE',
+            engagementLevel: 'Low',
+            subscriptionType: 'Free',
+            selectedUsers: 'Inactive'
         },
         {
-          id: 5,
-          name: 'Jennifer Beck',
-          question: 'Hard your return project easy?',
-          category: 'Geography',
-          language: 'French',
-          dateAdded: '22nd May, 2025',
-          status: 'INACTIVE',
-          engagementLevel: 'Low',
-          subscriptionType: 'Pro',
-          selectedUsers: 'Inactive'
+            id: 5,
+            name: 'Jennifer Beck',
+            question: 'Hard your return project easy?',
+            category: 'Geography',
+            language: 'French',
+            dateAdded: '22nd May, 2025',
+            status: 'INACTIVE',
+            engagementLevel: 'Low',
+            subscriptionType: 'Pro',
+            selectedUsers: 'Inactive'
         },
         {
-          id: 6,
-          name: 'Samantha Brown',
-          question: 'Ground notice paper meet?',
-          category: 'History',
-          language: 'English',
-          dateAdded: '22nd May, 2025',
-          status: 'INACTIVE',
-          engagementLevel: 'Medium',
-          subscriptionType: 'Free',
-          selectedUsers: 'Engaged'
+            id: 6,
+            name: 'Samantha Brown',
+            question: 'Ground notice paper meet?',
+            category: 'History',
+            language: 'English',
+            dateAdded: '22nd May, 2025',
+            status: 'INACTIVE',
+            engagementLevel: 'Medium',
+            subscriptionType: 'Free',
+            selectedUsers: 'Engaged'
         },
         {
-          id: 7,
-          name: 'Angela Jackson',
-          question: 'Authority free PM woman?',
-          category: 'Geography',
-          language: 'English',
-          dateAdded: '22nd May, 2025',
-          status: 'INACTIVE',
-          engagementLevel: 'High',
-          subscriptionType: 'Free',
-          selectedUsers: 'Inactive'
+            id: 7,
+            name: 'Angela Jackson',
+            question: 'Authority free PM woman?',
+            category: 'Geography',
+            language: 'English',
+            dateAdded: '22nd May, 2025',
+            status: 'INACTIVE',
+            engagementLevel: 'High',
+            subscriptionType: 'Free',
+            selectedUsers: 'Inactive'
         },
         {
-          id: 8,
-          name: 'Aaron Hardy',
-          question: 'Answer just heavy then?',
-          category: 'History',
-          language: 'French',
-          dateAdded: '22nd May, 2025',
-          status: 'ACTIVE',
-          engagementLevel: 'Low',
-          subscriptionType: 'Premium',
-          selectedUsers: 'All'
+            id: 8,
+            name: 'Aaron Hardy',
+            question: 'Answer just heavy then?',
+            category: 'History',
+            language: 'French',
+            dateAdded: '22nd May, 2025',
+            status: 'ACTIVE',
+            engagementLevel: 'Low',
+            subscriptionType: 'Premium',
+            selectedUsers: 'All'
         },
         {
-          id: 9,
-          name: 'Matthew Cohen',
-          question: 'Movement image town network section create?',
-          category: 'Science',
-          language: 'French',
-          dateAdded: '22nd May, 2025',
-          status: 'ACTIVE',
-          engagementLevel: 'All',
-          subscriptionType: 'Free',
-          selectedUsers: 'Inactive'
+            id: 9,
+            name: 'Matthew Cohen',
+            question: 'Movement image town network section create?',
+            category: 'Science',
+            language: 'French',
+            dateAdded: '22nd May, 2025',
+            status: 'ACTIVE',
+            engagementLevel: 'All',
+            subscriptionType: 'Free',
+            selectedUsers: 'Inactive'
         },
         {
-          id: 10,
-          name: 'Kimberly Smith',
-          question: 'Last order significant face mind friend?',
-          category: 'Science',
-          language: 'French',
-          dateAdded: '22nd May, 2025',
-          status: 'ACTIVE',
-          engagementLevel: 'Low',
-          subscriptionType: 'Premium',
-          selectedUsers: 'Inactive'
+            id: 10,
+            name: 'Kimberly Smith',
+            question: 'Last order significant face mind friend?',
+            category: 'Science',
+            language: 'French',
+            dateAdded: '22nd May, 2025',
+            status: 'ACTIVE',
+            engagementLevel: 'Low',
+            subscriptionType: 'Premium',
+            selectedUsers: 'Inactive'
         },
         {
-          id: 11,
-          name: 'Billy James',
-          question: 'Small economic minute write?',
-          category: 'Math',
-          language: 'Spanish',
-          dateAdded: '22nd May, 2025',
-          status: 'INACTIVE',
-          engagementLevel: 'Low',
-          subscriptionType: 'All',
-          selectedUsers: 'Engaged'
+            id: 11,
+            name: 'Billy James',
+            question: 'Small economic minute write?',
+            category: 'Math',
+            language: 'Spanish',
+            dateAdded: '22nd May, 2025',
+            status: 'INACTIVE',
+            engagementLevel: 'Low',
+            subscriptionType: 'All',
+            selectedUsers: 'Engaged'
         },
         {
-          id: 12,
-          name: 'David Choi',
-          question: 'Conference economy free camera available?',
-          category: 'Literature',
-          language: 'English',
-          dateAdded: '22nd May, 2025',
-          status: 'ACTIVE',
-          engagementLevel: 'Low',
-          subscriptionType: 'All',
-          selectedUsers: 'Free Users'
+            id: 12,
+            name: 'David Choi',
+            question: 'Conference economy free camera available?',
+            category: 'Literature',
+            language: 'English',
+            dateAdded: '22nd May, 2025',
+            status: 'ACTIVE',
+            engagementLevel: 'Low',
+            subscriptionType: 'All',
+            selectedUsers: 'Free Users'
         }
-      ]);
-      
+    ]);
+
 
     const [searchQuery, setSearchQuery] = useState('');
-    const [filterGeneral, setFilterGeneral] = useState('GENERAL');
-    const [filterCategory, setFilterCategory] = useState('');
-    const [filterLanguage, setFilterLanguage] = useState('');
-    const [openDropdownId, setOpenDropdownId] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [isViewModalOpen, setIsViewModalOpen] = useState(false);
-    const [selectedQuestion, setSelectedQuestion] = useState(null);
-    const [isEditing, setIsEditing] = useState(false);
-    const itemsPerPage = 10;
+  const [filterGeneral, setFilterGeneral] = useState('GENERAL');
+  const [filterCategory, setFilterCategory] = useState('');
+  const [filterLanguage, setFilterLanguage] = useState('');
+  const [openDropdownId, setOpenDropdownId] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const itemsPerPage = 10;
 
     const filteredQuestions = questions.filter((question) => {
         const matchesSearch = question.question.toLowerCase().includes(searchQuery.toLowerCase());
@@ -198,7 +199,8 @@ const FactQuestions = () => {
             setIsEditing(true);
             setIsViewModalOpen(true);
         } else if (action === 'Delete') {
-            console.log('Delete for question ID:', id);
+            setSelectedQuestion(question);
+            setIsDeleteModalOpen(true);
         }
         setOpenDropdownId(null);
     };
@@ -214,12 +216,10 @@ const FactQuestions = () => {
                 url: shareUrl,
             }).catch((error) => console.log('Error sharing:', error));
         } else {
-            // Fallback for browsers without Web Share API
             const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
             const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
             const linkedinUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=Fact Questions&summary=${encodeURIComponent(shareText)}`;
             console.log('Share manually:', { twitterUrl, facebookUrl, linkedinUrl });
-            // You can open these URLs in new tabs or display them to the user
             alert(`Share via:\nTwitter: ${twitterUrl}\nFacebook: ${facebookUrl}\nLinkedIn: ${linkedinUrl}`);
         }
     };
@@ -242,6 +242,18 @@ const FactQuestions = () => {
         setSelectedQuestion((prev) => ({ ...prev, [name]: value }));
     };
 
+    const confirmDelete = () => {
+        setQuestions(questions.filter((q) => q.id !== selectedQuestion.id));
+        setIsDeleteModalOpen(false);
+        setSelectedQuestion(null);
+    };
+
+    const handleCancel = () => {
+        setIsViewModalOpen(false);
+        setIsDeleteModalOpen(false);
+        setIsEditing(false);
+        setSelectedQuestion(null);
+    };
     return (
         <>
             <div className="p-6 bg-white rounded-lg mb-6">
@@ -506,6 +518,37 @@ const FactQuestions = () => {
                                     </button>
                                 </div>
                             )}
+                        </div>
+                    </div>
+                )}
+                {/* Delete Confirmation Modal */}
+                {isDeleteModalOpen && selectedQuestion && (
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                        <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
+                            <button
+                                onClick={handleCancel}
+                                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                            </button>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-4">Delete Question</h3>
+                            <p className="text-sm text-gray-600 mb-4">
+                                Are you sure you want to delete the question "{selectedQuestion.question}"? This action cannot be undone.
+                            </p>
+                            <div className="flex justify-end gap-2">
+                                <button
+                                    onClick={handleCancel}
+                                    className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={confirmDelete}
+                                    className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )}
