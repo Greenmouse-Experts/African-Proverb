@@ -556,5 +556,4 @@ const FactQuestions = () => {
 
     );
 };
-
 export default FactQuestions;
