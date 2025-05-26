@@ -255,104 +255,105 @@ const FactQuestions = () => {
     };
     return (
         <>
-            <div className="p-6 bg-white rounded-lg mb-6">
+            <div className="p-4 sm:p-6 bg-white rounded-lg mb-6">
                 {/* Filter Section */}
-                <div className="bg-white rounded-lg flex justify-between items-center">
-                    <div className="flex items-center gap-4">
-                        <div>
-                            <label className="block text-lg font-medium text-black mb-4">Filter Question</label>
-                            <div className="flex gap-2">
-                                <select
-                                    value={filterGeneral}
-                                    onChange={(e) => setFilterGeneral(e.target.value)}
-                                    className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
-                                >
-                                    <option>GENERAL</option>
-                                    <option>Geography</option>
-                                    <option>History</option>
-                                    <option>Math</option>
-                                    <option>Literature</option>
-                                    <option>Science</option>
-                                </select>
-                                <select
-                                    value={filterCategory}
-                                    onChange={(e) => setFilterCategory(e.target.value)}
-                                    className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
-                                >
-                                    <option value="">By Category</option>
-                                    <option>Geography</option>
-                                    <option>History</option>
-                                    <option>Math</option>
-                                    <option>Literature</option>
-                                    <option>Science</option>
-                                </select>
-                                <select
-                                    value={filterLanguage}
-                                    onChange={(e) => setFilterLanguage(e.target.value)}
-                                    className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
-                                >
-                                    <option value="">By Language</option>
-                                    <option>English</option>
-                                    <option>Spanish</option>
-                                    <option>French</option>
-                                </select>
-                                <button
-                                    onClick={handleFilter}
-                                    className="px-6 py-3 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none"
-                                >
-                                    Filter Questions
-                                </button>
-                            </div>
+                <div className="bg-white rounded-lg flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+                    <div className="flex flex-col w-full">
+                        <label className="block text-base sm:text-lg font-medium text-black mb-2">Filter Question</label>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                            <select
+                                value={filterGeneral}
+                                onChange={(e) => setFilterGeneral(e.target.value)}
+                                className="p-2 sm:p-3 px-4 border border-gray-300 rounded-md text-sm outline-none w-full"
+                            >
+                                <option>GENERAL</option>
+                                <option>Geography</option>
+                                <option>History</option>
+                                <option>Math</option>
+                                <option>Literature</option>
+                                <option>Science</option>
+                            </select>
+                            <select
+                                value={filterCategory}
+                                onChange={(e) => setFilterCategory(e.target.value)}
+                                className="p-2 sm:p-3 px-4 border border-gray-300 rounded-md text-sm outline-none w-full"
+                            >
+                                <option value="">By Category</option>
+                                <option>Geography</option>
+                                <option>History</option>
+                                <option>Math</option>
+                                <option>Literature</option>
+                                <option>Science</option>
+                            </select>
+                            <select
+                                value={filterLanguage}
+                                onChange={(e) => setFilterLanguage(e.target.value)}
+                                className="p-2 sm:p-3 px-4 border border-gray-300 rounded-md text-sm outline-none w-full"
+                            >
+                                <option value="">By Language</option>
+                                <option>English</option>
+                                <option>Spanish</option>
+                                <option>French</option>
+                            </select>
+                            <button
+                                onClick={handleFilter}
+                                className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none  sm:w-auto"
+                            >
+                                Filter Questions
+                            </button>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <label className="block text-lg font-medium text-black mb-4">Search Question</label>
-                        <input
-                            type="text"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="p-3 px-6 border border-gray-300 rounded-md text-sm outline-none"
-                            placeholder="Search"
-                        />
-                        <button
-                            onClick={handleSearch}
-                            className="px-6 py-3 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none"
-                        >
-                            Search
-                        </button>
+                    <div className="flex flex-col w-full">
+                        <label className="block text-base sm:text-lg font-medium text-black mb-2">Search Question</label>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="p-2 sm:p-3 px-4 border border-gray-300 rounded-md text-sm outline-none w-full"
+                                placeholder="Search"
+                            />
+                            <button
+                                onClick={handleSearch}
+                                className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none w-full sm:w-auto"
+                            >
+                                Search
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="p-6 bg-white rounded-lg">
+
+            <div className="p-4 sm:p-6 bg-white rounded-lg">
                 {/* Table */}
                 <div className="bg-white rounded-lg">
                     <div className="overflow-x-auto">
-                        <table className="w-full text-left">
+                        <table className="w-full text-left hidden sm:table">
                             <thead>
                                 <tr className="bg-gray-100 border-b border-gray-200">
-                                    <th className="p-6 text-sm font-medium text-gray-700">
-                                        <input type="checkbox" className="mr-8" />
+                                    <th className="p-4 sm:p-6 text-sm font-medium text-gray-700">
+                                        <input type="checkbox" className="mr-4" />
                                         Question
                                     </th>
-                                    <th className="p-6 text-sm font-medium text-gray-700">Question Type</th>
-                                    <th className="p-6 text-sm font-medium text-gray-700">Current Status</th>
-                                    <th className="p-6 text-sm font-medium text-gray-700">Created At</th>
-                                    <th className="p-6 text-sm font-medium text-gray-700">Actions</th>
+                                    <th className="p-4 sm:p-6 text-sm font-medium text-gray-700">Question Type</th>
+                                    <th className="p-4 sm:p-6 text-sm font-medium text-gray-700">Current Status</th>
+                                    <th className="p-4 sm:p-6 text-sm font-medium text-gray-700">Created At</th>
+                                    <th className="p-4 sm:p-6 text-sm font-medium text-gray-700">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {paginatedQuestions.map((question) => (
                                     <tr key={question.id} className="border-b border-gray-200 hover:bg-gray-50">
-                                        <td className="p-6 text-sm text-gray-600">
-                                            <input type="checkbox" className="mr-8" />
+                                        <td className="p-4 sm:p-6 text-sm text-gray-600">
+                                            <input type="checkbox" className="mr-4" />
                                             {question.question}
                                         </td>
-                                        <td className="p-6 text-sm text-gray-600">{question.category}</td>
-                                        <td className="p-6 text-sm text-gray-600">
+                                        <td className="p-4 sm:p-6 text-sm text-gray-600">{question.category}</td>
+                                        <td className="p-4 sm:p-6 text-sm text-gray-600">
                                             <button className="px-2 py-1 bg-blue-200 text-white rounded text-xs">ACTIVE</button>
                                         </td>
-                                        <td className="p-6 text-sm text-gray-600">{question.dateAdded}</td>
-                                        <td className="p-6 text-sm text-gray-600 relative">
+                                        <td className="p-4 sm:p-6 text-sm text-gray-600">{question.dateAdded}</td>
+                                        <td className="p-4 sm:p-6 text-sm text-gray-600 relative">
                                             <button
                                                 onClick={() => toggleDropdown(question.id)}
                                                 className="text-[#5DB6DC] hover:text-blue-700"
@@ -400,38 +401,112 @@ const FactQuestions = () => {
                                 ))}
                             </tbody>
                         </table>
+                        {/* Mobile Card Layout */}
+                        <div className="sm:hidden space-y-4">
+                            {paginatedQuestions.map((question) => (
+                                <div key={question.id} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex items-center">
+                                            <input type="checkbox" className="mr-2" />
+                                            <p className="text-sm text-gray-600 font-medium">{question.question}</p>
+                                        </div>
+                                        <button
+                                            onClick={() => toggleDropdown(question.id)}
+                                            className="text-[#5DB6DC] hover:text-blue-700"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <circle cx="12" cy="12" r="1" />
+                                                <circle cx="12" cy="5" r="1" />
+                                                <circle cx="12" cy="19" r="1" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    {openDropdownId === question.id && (
+                                        <div className="mt-2 w-full bg-white border border-gray-200 rounded-md shadow-lg">
+                                            <button
+                                                onClick={() => handleAction('View', question.id)}
+                                                className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            >
+                                                View
+                                            </button>
+                                            <button
+                                                onClick={() => handleAction('Edit', question.id)}
+                                                className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            >
+                                                Edit
+                                            </button>
+                                            <button
+                                                onClick={() => handleAction('Delete', question.id)}
+                                                className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    )}
+                                    <p className="text-sm text-gray-600 mt-2"><strong>Type:</strong> {question.category}</p>
+                                    <p className="text-sm text-gray-600"><strong>Status:</strong> <button className="px-2 py-1 bg-blue-200 text-white rounded text-xs">ACTIVE</button></p>
+                                    <p className="text-sm text-gray-600"><strong>Created At:</strong> {question.dateAdded}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
                 {/* Share and Pagination */}
-                <div className="mt-4 flex justify-between items-center bg-gray-200 p-4 rounded-lg">
+                <div className="mt-4 flex flex-col sm:flex-row justify-between items-center bg-gray-200 p-4 rounded-lg gap-4">
                     <button
                         onClick={handleShare}
-                        className="px-4 py-2 bg-blue-700 text-white rounded-md text-sm flex items-center hover:bg-blue-800 outline-none"
+                        className="px-4 py-2 bg-blue-700 text-white rounded-md text-sm flex items-center hover:bg-blue-800 outline-none w-full sm:w-auto"
                     >
-                        Share <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2"><polyline points="18 15 12 21 6 15"></polyline><polyline points="6 9 12 3 18 9"></polyline></svg>
+                        Share
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="ml-2"
+                        >
+                            <polyline points="18 15 12 21 6 15"></polyline>
+                            <polyline points="6 9 12 3 18 9"></polyline>
+                        </svg>
                     </button>
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                         <button
                             onClick={handlePreviousPage}
-                            className="px-4 py-2 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none disabled:opacity-50"
+                            className="px-4 py-2 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none disabled:opacity-50 w-full sm:w-auto"
                             disabled={currentPage === 1}
                         >
                             Fetch previous 10
                         </button>
                         <button
                             onClick={handleNextPage}
-                            className="px-4 py-2 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none disabled:opacity-50"
+                            className="px-4 py-2 bg-blue-300 text-white rounded-md text-sm hover:bg-blue-400 outline-none disabled:opacity-50 w-full sm:w-auto"
                             disabled={currentPage === totalPages}
                         >
                             Fetch Next 10
                         </button>
                     </div>
                 </div>
+
                 {/* View/Edit Modal */}
                 {isViewModalOpen && selectedQuestion && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="bg-white rounded-lg p-6 w-full max-w-xl relative">
+                        <div className="bg-white rounded-lg p-4 sm:p-6 w-full max-w-[90vw] sm:max-w-xl relative overflow-y-auto max-h-[90vh]">
                             <button
                                 onClick={() => {
                                     setIsViewModalOpen(false);
@@ -440,17 +515,30 @@ const FactQuestions = () => {
                                 }}
                                 className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
                             </button>
-                            <div className="flex justify-between items-center mb-4 mt-8">
-                                <div className="flex items-center">
-                                    <span className="text-sm text-gray-600 mr-2">Created At: <strong>Thu Jan 04 2025</strong></span>
-                                    <button className="px-6 py-2 bg-blue-200 text-white rounded text-xs">{selectedQuestion.status}</button>
+                            <div className="flex flex-col sm:flex-row justify-between items-center mb-4 mt-8 gap-4">
+                                <div className="flex flex-col sm:flex-row items-center gap-2">
+                                    <span className="text-sm text-gray-600">Created At: <strong>Thu Jan 04 2025</strong></span>
+                                    <button className="px-4 sm:px-6 py-2 bg-blue-200 text-white rounded text-xs">{selectedQuestion.status}</button>
                                 </div>
                                 <div>
                                     <button
                                         onClick={() => setIsEditing(true)}
-                                        className="px-6 py-2 bg-[#BB5D06] text-white rounded-md text-sm hover:bg-orange-600"
+                                        className="px-4 sm:px-6 py-2 bg-[#BB5D06] text-white rounded-md text-sm hover:bg-orange-600 w-full sm:w-auto"
                                     >
                                         Edit
                                     </button>
@@ -459,13 +547,13 @@ const FactQuestions = () => {
                             <div className="space-y-4">
                                 <p className="text-sm text-gray-600">Question: <strong>{selectedQuestion.question}</strong></p>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-3">Language preference</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Language preference</label>
                                     <select
                                         name="language"
                                         value={selectedQuestion.language}
                                         onChange={handleChange}
                                         disabled={!isEditing}
-                                        className="mt-1 p-4 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="mt-1 p-3 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     >
                                         <option>Select Language</option>
                                         <option>English</option>
@@ -474,36 +562,36 @@ const FactQuestions = () => {
                                     </select>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-3">Engagement level</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Engagement level</label>
                                     <input
                                         type="text"
                                         name="engagementLevel"
                                         value={selectedQuestion.engagementLevel}
                                         onChange={handleChange}
                                         disabled={!isEditing}
-                                        className="mt-1 p-4 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="mt-1 p-3 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-3">Subscription type</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Subscription type</label>
                                     <input
                                         type="text"
                                         name="subscriptionType"
                                         value={selectedQuestion.subscriptionType}
                                         onChange={handleChange}
                                         disabled={!isEditing}
-                                        className="mt-1 p-4 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="mt-1 p-3 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-3">Select Users</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Select Users</label>
                                     <input
                                         type="text"
                                         name="selectedUsers"
                                         value={selectedQuestion.selectedUsers}
                                         onChange={handleChange}
                                         disabled={!isEditing}
-                                        className="mt-1 p-4 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="mt-1 p-3 w-full border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
                             </div>
@@ -511,7 +599,7 @@ const FactQuestions = () => {
                                 <div className="mt-4 flex justify-end">
                                     <button
                                         onClick={handleSave}
-                                        className="px-4 py-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="px-4 py-2 bg-blue-500 text-white rounded-md text-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto"
                                     >
                                         Save
                                     </button>
@@ -520,30 +608,44 @@ const FactQuestions = () => {
                         </div>
                     </div>
                 )}
+
                 {/* Delete Confirmation Modal */}
                 {isDeleteModalOpen && selectedQuestion && (
                     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
+                        <div className="bg-white rounded-lg p-4 sm:p-6 w-full max-w-[90vw] sm:max-w-md relative">
                             <button
                                 onClick={handleCancel}
                                 className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                >
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
                             </button>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-4">Delete Question</h3>
+                            <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">Delete Question</h3>
                             <p className="text-sm text-gray-600 mb-4">
                                 Are you sure you want to delete the question "{selectedQuestion.question}"? This action cannot be undone.
                             </p>
-                            <div className="flex justify-end gap-2">
+                            <div className="flex flex-col sm:flex-row justify-end gap-2">
                                 <button
                                     onClick={handleCancel}
-                                    className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     onClick={confirmDelete}
-                                    className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                    className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 w-full sm:w-auto"
                                 >
                                     Delete
                                 </button>
